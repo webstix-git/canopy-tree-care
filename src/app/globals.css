@@ -1,26 +1,101 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-forest-950: #0e2318;
+  --color-forest-900: #14301f;
+  --color-forest-800: #1b4029;
+  --color-forest-700: #245535;
+  --color-forest-600: #2f6b43;
+  --color-forest-500: #3d8454;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --color-leaf-500: #6f9e3c;
+  --color-leaf-400: #8db85b;
+  --color-leaf-200: #cfe2b4;
+  --color-leaf-100: #e8f1dc;
+
+  --color-cream-50: #fcfaf5;
+  --color-cream-100: #f6f2e8;
+  --color-cream-200: #ece5d3;
+
+  --color-sun-400: #f2b84b;
+  --color-sun-500: #e9a32f;
+  --color-sun-600: #cf8a1b;
+
+  --color-ink: #1b2620;
+  --color-ink-muted: #4f5d54;
+
+  --animate-rise: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream-50 font-sans text-ink;
+  }
+
+  h1,
+  h2,
+  h3,
+  em,
+  i {
+    font-style: normal;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-sans font-bold tracking-tight text-forest-900;
+    text-wrap: balance;
+  }
+
+  p {
+    font-size: 18px;
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    @apply bg-leaf-200 text-forest-900;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-sun-500;
+  }
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-[1280px] px-5 sm:px-8;
+}
+
+@utility eyebrow {
+  @apply inline-flex items-center gap-2 text-xs font-bold tracking-[0.18em] text-forest-600 uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
