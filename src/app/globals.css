@@ -42,8 +42,16 @@
 }
 
 @layer base {
+  :root {
+    --site-header-height: 8.5rem;
+  }
+
   html {
     scroll-behavior: smooth;
+  }
+
+  html[data-scroll-instant] {
+    scroll-behavior: auto;
   }
 
   body {

@@ -1,40 +1,34 @@
 "use client";
 
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import storm from "@/assets/images/gallery-storm-cleanup.jpg";
-import cleanup from "@/assets/images/gallery-cleanup.jpg";
-import stump from "@/assets/images/gallery-stump.jpg";
-import team from "@/assets/images/gallery-team.jpg";
-import spar from "@/assets/images/gallery-spar-removal.jpg";
-import property from "@/assets/images/gallery-property.jpg";
 
-const photos: { image: StaticImageData; alt: string }[] = [
+const photos: { image: string; alt: string }[] = [
   {
-    image: storm,
-    alt: "Storm-damaged limbs and branches across a driveway, ready for cleanup",
+    image: "/images/gallery-storm-cleanup.jpg",
+    alt: "Storm-broken limbs and leaves scattered across a driveway",
   },
   {
-    image: cleanup,
-    alt: "Aerial view of an arborist feeding branches into a wood chipper",
-  },
-  {
-    image: stump,
-    alt: "Stump grinding inside an orange safety perimeter",
-  },
-  {
-    image: spar,
+    image: "/images/gallery-spar-removal.jpg",
     alt: "A tall trunk being removed in sections beside a house",
   },
   {
-    image: team,
-    alt: "The Canopy Tree Care team out in the field with their axes",
+    image: "/images/service-stump.jpg",
+    alt: "Crew member operating a stump grinder beside a fence",
   },
   {
-    image: property,
-    alt: "A cared-for tree on a residential property",
+    image: "/images/service-removal-house.jpg",
+    alt: "Arborist taking down a tree in sections beside a house",
+  },
+  {
+    image: "/images/crew-axes.jpg",
+    alt: "Two Canopy Tree Care crew members with axes in a field",
+  },
+  {
+    image: "/images/welcome-climber.jpg",
+    alt: "Climber in a high-visibility jacket working partway up a trunk",
   },
 ];
 
@@ -65,15 +59,16 @@ export function Gallery({
   }, [active]);
 
   return (
-    <section className="bg-forest-900 py-24 text-cream-100 lg:py-32" aria-labelledby="gallery-title">
+    <section id="gallery" className="scroll-mt-28 bg-forest-900 py-24 text-cream-100 lg:py-32" aria-labelledby="gallery-title">
       <div className="container-page">
         <header className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow justify-center text-leaf-200">Gallery</p>
+          <p className="eyebrow justify-center text-leaf-200">Our work</p>
           <Heading id="gallery-title" className="mt-4 text-4xl leading-tight text-white sm:text-5xl">
             Some of Our Work
           </Heading>
           <p className="mt-4 text-lg leading-relaxed text-cream-100/75">
-            A few recent jobs around town, big and small.
+            Every property is different. Here&apos;s a look at some of the tree work we&apos;ve done
+            around the Madison area.
           </p>
         </header>
 
@@ -90,7 +85,6 @@ export function Gallery({
                   src={photo.image}
                   alt={photo.alt}
                   fill
-                  placeholder="blur"
                   sizes="(min-width: 1024px) 33vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -105,7 +99,7 @@ export function Gallery({
               href="/gallery"
               className="inline-flex rounded-full bg-sun-500 px-7 py-3.5 font-semibold text-forest-950 transition-colors hover:bg-sun-400"
             >
-              View Our Gallery
+              View Our Work
             </Link>
           </div>
         ) : null}
@@ -138,6 +132,8 @@ export function Gallery({
             <Image
               src={photos[active].image}
               alt={photos[active].alt}
+              width={1600}
+              height={1200}
               className="max-h-[80vh] w-auto rounded-2xl object-contain"
             />
             <figcaption className="mt-3 text-center text-sm text-cream-100/80">

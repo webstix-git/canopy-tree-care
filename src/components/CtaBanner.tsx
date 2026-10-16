@@ -4,17 +4,20 @@ import { Phone } from "lucide-react";
 import { site } from "@/lib/site";
 import canopyImg from "@/assets/images/cta-canopy.jpg";
 
-export function CtaBanner() {
+export function CtaBanner({
+  id,
+  description = "Tell us what's going on and we'll come take a look. We'll explain what we find and help you figure out what makes sense for your property.",
+}: {
+  id?: string;
+  description?: string;
+}) {
   return (
-    <section className="relative overflow-hidden py-20 lg:py-28">
+    <section id={id} className={`relative overflow-hidden py-20 lg:py-28 ${id ? "scroll-mt-28" : ""}`}>
       <Image src={canopyImg} alt="" fill placeholder="blur" sizes="100vw" className="object-cover" />
       <div aria-hidden="true" className="absolute inset-0 bg-[rgb(20_48_31/72%)]" />
       <div className="container-page relative mx-auto max-w-3xl text-center text-cream-50">
         <h2 className="text-4xl leading-tight text-white sm:text-5xl">Got a Tree You&apos;re Worried About?</h2>
-        <p className="mx-auto mt-5 max-w-xl text-cream-100">
-          Tell us what&apos;s going on and we&apos;ll come take a look. Estimates are free, and
-          there&apos;s never any pressure to book.
-        </p>
+        <p className="mx-auto mt-5 max-w-xl text-cream-100">{description}</p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/contact"

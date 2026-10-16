@@ -39,7 +39,9 @@ export default function AiReadinessPage() {
                 </a>
               </li>
               <li>
-                Address: {site.street}, {site.locality}
+                Address: {site.street}
+                <br />
+                {site.locality}
               </li>
               <li>Service area: {site.serviceArea}</li>
               <li>Website: {site.url}</li>

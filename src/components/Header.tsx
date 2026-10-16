@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
@@ -16,17 +16,43 @@ export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [servicesMenu, setServicesMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const servicesLock = useRef(false);
+  const headerRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setOpen(false);
+    setServicesMenu(false);
+    setScrolled(window.scrollY > 8);
+    const timer = window.setTimeout(() => {
+      servicesLock.current = false;
+    }, 400);
+    return () => window.clearTimeout(timer);
   }, [pathname]);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const header = headerRef.current;
+    const sync = () => {
+      const next = window.scrollY > 8;
+      document.documentElement.dataset.scrolled = next ? "true" : "false";
+      setScrolled(next);
+      if (header) {
+        const height = `${header.offsetHeight}px`;
+        document.documentElement.style.setProperty("--site-header-height", height);
+        document.body.style.setProperty("--site-header-height", height);
+      }
+    };
+    sync();
+    document.addEventListener("scroll", sync, { passive: true, capture: true });
+    window.addEventListener("resize", sync);
+    const observer = header ? new ResizeObserver(sync) : null;
+    if (header && observer) observer.observe(header);
+    return () => {
+      document.removeEventListener("scroll", sync, { capture: true });
+      window.removeEventListener("resize", sync);
+      observer?.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -57,6 +83,7 @@ export function Header() {
       </div>
     </div>
     <header
+      ref={headerRef}
       className={`sticky top-0 z-50 transition-colors duration-300 ${
         scrolled ? "bg-cream-50/95 shadow-[0_10px_30px_-24px_rgb(20_48_31/0.8)] backdrop-blur-md" : "bg-transparent"
       }`}
@@ -79,15 +106,46 @@ export function Header() {
             } ${active ? "underline decoration-2 underline-offset-8 decoration-forest-700" : ""}`;
 
             return link.href === "/services" ? (
-              <div key={link.href} className="group relative">
-                <Link href={link.href} className={`inline-flex items-center gap-1.5 ${itemClass}`} aria-haspopup="true" aria-current={active ? "page" : undefined}>
+              <div
+                key={link.href}
+                className="relative"
+                onMouseEnter={() => {
+                  if (!servicesLock.current) setServicesMenu(true);
+                }}
+                onMouseLeave={() => {
+                  servicesLock.current = false;
+                  setServicesMenu(false);
+                }}
+                onBlur={(event) => {
+                  const next = event.relatedTarget;
+                  if (!(next instanceof Node) || !event.currentTarget.contains(next)) setServicesMenu(false);
+                }}
+              >
+                <Link
+                  href={link.href}
+                  className={`inline-flex items-center gap-1.5 ${itemClass}`}
+                  aria-haspopup="true"
+                  aria-expanded={servicesMenu}
+                  aria-current={active ? "page" : undefined}
+                  onClick={() => {
+                    servicesLock.current = true;
+                    setServicesMenu(false);
+                  }}
+                  onFocus={() => {
+                    if (!servicesLock.current) setServicesMenu(true);
+                  }}
+                >
                   {link.label}
                   <ChevronDown
-                    className="size-4 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"
+                    className={`size-4 transition-transform duration-200 ${servicesMenu ? "rotate-180" : ""}`}
                     aria-hidden="true"
                   />
                 </Link>
-                <div className="invisible absolute top-full left-0 z-50 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                <div
+                  className={`absolute top-full left-0 z-50 pt-3 transition-all duration-200 ${
+                    servicesMenu ? "visible opacity-100" : "invisible opacity-0"
+                  }`}
+                >
                   <ul className="min-w-56 rounded-2xl bg-white p-2 shadow-[0_24px_50px_-28px_rgb(20_48_31/0.55)] ring-1 ring-forest-900/10">
                     {services.map((service) => {
                       const serviceActive = pathname === `/services/${service.slug}`;
@@ -96,6 +154,10 @@ export function Header() {
                           <Link
                             href={`/services/${service.slug}`}
                             aria-current={serviceActive ? "page" : undefined}
+                            onClick={() => {
+                              servicesLock.current = true;
+                              setServicesMenu(false);
+                            }}
                             className={`block rounded-xl px-4 py-2.5 text-base font-semibold transition-colors hover:bg-cream-100 hover:text-forest-700 ${
                               serviceActive
                                 ? "text-forest-700 underline decoration-2 underline-offset-4 decoration-forest-700"

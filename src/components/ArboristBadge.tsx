@@ -1,5 +1,4 @@
 import Image from "next/image";
-import isaBadge from "@/assets/images/isa-certified-arborist.jpg";
 
 type ArboristBadgeProps = {
   className?: string;
@@ -8,8 +7,10 @@ type ArboristBadgeProps = {
 export function ArboristBadge({ className = "h-28 w-auto" }: ArboristBadgeProps) {
   return (
     <Image
-      src={isaBadge}
+      src="/images/image.jpeg"
       alt="ISA Certified Arborist"
+      width={220}
+      height={360}
       className={className}
     />
   );

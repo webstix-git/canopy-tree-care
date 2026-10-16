@@ -1,25 +1,25 @@
-import { Award, Crosshair, MapPin, Sparkles } from "lucide-react";
+import { Award, MapPin, MessageSquare, Sparkles } from "lucide-react";
 
 const pillars = [
   {
     icon: Award,
     title: "Certified Expertise",
-    text: "Led by ISA Certified Arborist Josh Knapp, with 25 years of experience.",
-  },
-  {
-    icon: Crosshair,
-    title: "Tight Spots? No Problem",
-    text: "We take care with work right next to your house, fence, or garden.",
-  },
-  {
-    icon: Sparkles,
-    title: "We Leave It Tidy",
-    text: "Brush is raked, blown, and hauled away. Your yard is left clean.",
+    text: "Tree care led by an ISA Certified Arborist.",
   },
   {
     icon: MapPin,
-    title: "Your Local Crew",
-    text: "Owned and run right here in Madison. When you call, you talk to us.",
+    title: "Local to Madison",
+    text: "Proudly serving homeowners throughout Madison and Dane County.",
+  },
+  {
+    icon: MessageSquare,
+    title: "Honest Recommendations",
+    text: "We'll tell you what your tree actually needs—not what it doesn't.",
+  },
+  {
+    icon: Sparkles,
+    title: "Careful Cleanup",
+    text: "We treat your property with care and clean up when the work is done.",
   },
 ];
 

@@ -1,41 +1,44 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, CloudLightning, Phone } from "lucide-react";
-import { site } from "@/lib/site";
-import removalImg from "@/assets/images/service-removal.jpg";
-import pruningImg from "@/assets/images/service-pruning.jpg";
-import stumpImg from "@/assets/images/service-stump-grinding.jpg";
-import diseaseImg from "@/assets/images/service-plant-health.jpg";
+import { ArrowUpRight } from "lucide-react";
+import lotClearing from "@/assets/images/gallery-cleanup.jpg";
 
 const cards = [
   {
     slug: "tree-removal",
     name: "Tree Removal",
-    text: "Some trees have to come down. Storm damage, disease, or one leaning over the house. We take them down carefully, even in tight spots close to your home.",
-    image: removalImg,
-    alt: "A crane lifting a cut section of trunk during a residential tree removal",
+    text: "When a tree is dead, damaged, or creating a safety concern, we'll help you figure out the safest way to handle it.",
+    image: "/images/service-removal-house.jpg",
+    alt: "Arborist taking down a tree in sections beside a house",
     featured: true,
   },
   {
     slug: "tree-pruning",
     name: "Tree Pruning",
-    text: "Good pruning keeps a tree healthy, lets light into your yard, and keeps branches clear of your roof and lines. We prune to help the tree, never just to shorten it.",
-    image: pruningImg,
-    alt: "An arborist pruning the canopy of a large shade tree",
+    text: "Good pruning isn't about cutting as much as possible. It's about knowing what to remove, what to leave, and how the tree will respond.",
+    image: "/images/welcome-climber.jpg",
+    alt: "Climber in a high-visibility jacket working partway up a trunk",
   },
   {
     slug: "stump-grinding",
     name: "Stump Grinding",
-    text: "A stump left behind is a tripping hazard and an eyesore. We grind it below grade so you can replant, reseed, or just have your yard back.",
-    image: stumpImg,
-    alt: "A stump grinder removing a tree stump from a lawn",
+    text: "Once a tree is gone, the stump doesn't have to stay. We'll grind it down so you can make better use of the space.",
+    image: "/images/service-stump.jpg",
+    alt: "Crew member operating a stump grinder beside a fence",
   },
   {
     slug: "disease-management",
     name: "Disease Management",
-    text: "When a tree is struggling, we figure out why and tell you plainly whether it can be saved. Oak wilt, ash borers, and decline are problems we see across Dane County.",
-    image: diseaseImg,
-    alt: "Close view of healthy green leaves in a cared-for tree canopy",
+    text: "Leaves changing, branches dying, or a tree looking different than it used to? We'll take a closer look and help you understand what's happening.",
+    image: "/images/gallery-storm-cleanup.jpg",
+    alt: "Storm-broken limbs and leaves scattered across a driveway",
+  },
+  {
+    slug: "lot-clearing",
+    name: "Lot Clearing",
+    text: "Need trees and brush cleared for a project? We'll help you figure out what needs to go and get the site ready for what's next.",
+    image: lotClearing,
+    alt: "Brush and debris cleared from a residential lot",
   },
 ];
 
@@ -45,14 +48,14 @@ export function Services() {
       <div className="container-page">
       <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
         <div className="max-w-xl">
-          <p className="eyebrow">Our Services</p>
+          <p className="eyebrow">What we do</p>
           <h2 id="services-title" className="mt-4 text-4xl leading-tight sm:text-5xl">
             How We Can Help
           </h2>
         </div>
         <p className="max-w-md text-ink-muted">
-          Most of our days are spent on one of these three jobs. If you&apos;re not sure which one you
-          need, just tell us what&apos;s going on and we&apos;ll point you the right way.
+          Every tree and every property is a little different. We&apos;ll look at what&apos;s going
+          on and recommend the work that actually makes sense.
         </p>
       </div>
 
@@ -70,7 +73,6 @@ export function Services() {
                   src={card.image}
                   alt={card.alt}
                   fill
-                  placeholder="blur"
                   sizes={card.featured ? "(min-width: 1024px) 32vw, 100vw" : "(min-width: 768px) 45vw, 100vw"}
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -83,42 +85,13 @@ export function Services() {
                 <h3 className="font-display text-2xl font-semibold tracking-tight text-forest-900">{card.name}</h3>
                 <p className="mt-2 text-[18px] leading-relaxed text-ink-muted">{card.text}</p>
                 <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-forest-700">
-                  Learn more about {card.name.toLowerCase()}
+                  Learn About {card.name}
                   <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
                 </span>
               </div>
             </Link>
           </li>
         ))}
-
-        <li>
-          <div className="flex h-full flex-col justify-between rounded-[1.75rem] bg-forest-800 p-7 text-cream-50">
-            <div>
-              <span className="grid size-12 place-items-center rounded-2xl bg-white/10 text-sun-400">
-                <CloudLightning className="size-6" aria-hidden="true" />
-              </span>
-              <h3 className="mt-6 font-display text-2xl font-semibold tracking-tight text-white">
-                Storm Damage
-              </h3>
-              <p className="mt-2 text-[18px] leading-relaxed text-cream-100/80">
-                Hanging limbs and split trunks can&apos;t wait. Call and we&apos;ll come take a look,
-                then take the hazard down safely.
-              </p>
-            </div>
-            <div className="mt-8 flex flex-col gap-3">
-              <a
-                href={site.phoneHref}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-sun-400 px-5 py-3 text-sm font-bold text-forest-950 hover:bg-sun-500"
-              >
-                <Phone className="size-4" aria-hidden="true" />
-                {site.phone}
-              </a>
-              <Link href="/services/storm-damage" className="text-center text-sm font-semibold text-leaf-200 hover:text-white">
-                Learn more about storm damage
-              </Link>
-            </div>
-          </div>
-        </li>
       </ul>
       </div>
     </section>

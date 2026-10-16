@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { EstimateForm } from "@/components/home/EstimateForm";
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   description: `Request a free tree care estimate in Madison and Dane County. Call ${site.phone} or write ${site.email}.`,
 };
 
-const details = [
+const details: { icon: typeof Phone; label: string; href: string; text: ReactNode }[] = [
   {
     icon: Phone,
     label: "Phone",
@@ -26,7 +27,13 @@ const details = [
     icon: MapPin,
     label: "Address",
     href: site.mapHref,
-    text: `${site.street}, ${site.locality}`,
+    text: (
+      <>
+        {site.street}
+        <br />
+        {site.locality}
+      </>
+    ),
   },
 ];
 

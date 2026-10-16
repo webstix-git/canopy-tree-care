@@ -62,7 +62,9 @@ export default function PrivacyPolicyPage() {
               <a href={site.phoneHref} className="font-semibold text-forest-700 underline">
                 {site.phone}
               </a>
-              . Our shop is at {site.street}, {site.locality}.
+              . Our shop is at {site.street}
+              <br />
+              {site.locality}.
             </p>
             <p className="mt-4">
               <Link href="/contact" className="font-semibold text-forest-800 underline underline-offset-4">

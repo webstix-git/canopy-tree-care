@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileCallBar } from "@/components/MobileCallBar";
+import { RouteScroll } from "@/components/RouteScroll";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { WidowFix } from "@/components/WidowFix";
 import { site } from "@/lib/site";
@@ -34,7 +35,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${manrope.variable} antialiased`}>
+    <html lang="en" className={`${manrope.variable} antialiased`} style={{ "--site-header-height": "8.5rem" }}>
       <body className="flex min-h-dvh flex-col pb-20 md:pb-0">
         <a
           href="#main"
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
+        <RouteScroll />
         <Header />
         <main id="main" className="flex-1">
           {children}

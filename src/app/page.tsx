@@ -1,5 +1,5 @@
 import { Blog } from "@/components/home/Blog";
-import { EstimateCTA } from "@/components/home/EstimateCTA";
+import { CtaBanner } from "@/components/CtaBanner";
 import { Gallery } from "@/components/home/Gallery";
 import { Hero } from "@/components/home/Hero";
 import { Process } from "@/components/home/Process";
@@ -35,7 +35,7 @@ const jsonLd = {
     jobTitle: "ISA Certified Arborist",
   },
   description:
-    "Canopy Tree Care is a small, locally owned crew led by ISA Certified Arborist Josh Knapp. We take down trees that have to go, look after the ones worth saving, and leave your yard tidy when we're done.",
+    "Trees don't always make it easy to know what they need. Canopy Tree Care looks at the tree and gives Madison homeowners an honest recommendation.",
 };
 
 export default function HomePage() {
@@ -51,7 +51,7 @@ export default function HomePage() {
       <Blog />
       <Gallery />
       <ServiceArea />
-      <EstimateCTA />
+      <CtaBanner id="estimate" />
     </>
   );
 }

@@ -1,33 +1,34 @@
 const steps = [
   {
     title: "Give Us a Call",
-    text: "Call or message us and tell us a bit about the tree and what's worrying you.",
+    text: "Tell us what's going on and what you're concerned about.",
   },
   {
     title: "We Come Take a Look",
-    text: "Josh stops by, looks the tree over, and walks you through what he sees.",
+    text: "We'll look at the tree, its condition, and what's around it.",
   },
   {
-    title: "You Get a Clear Quote",
-    text: "You'll get your options and a straight price, with no pressure to say yes.",
+    title: "You Get Clear Options",
+    text: "We'll explain what we found and what we'd recommend.",
   },
   {
     title: "We Do the Work",
-    text: "We get the job done safely and leave your yard as tidy as we found it, if not tidier.",
+    text: "Once you've decided what you'd like to do, we'll take care of the job safely and carefully.",
   },
 ];
 
 export function Process() {
   return (
-    <section className="bg-cream-50 py-24 lg:py-32" aria-labelledby="process-title">
+    <section id="process" className="scroll-mt-28 bg-cream-50 py-24 lg:py-32" aria-labelledby="process-title">
       <div className="container-page">
       <header className="mx-auto max-w-2xl text-center">
-        <p className="eyebrow justify-center">Our Work Process</p>
+        <p className="eyebrow justify-center">A simple process</p>
         <h2 id="process-title" className="mt-4 text-4xl leading-tight sm:text-5xl">
           What Happens When You Call
         </h2>
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-          Here&apos;s how a typical job goes, start to finish.
+          No complicated process. Just a conversation, a look at the tree, and a clear
+          recommendation.
         </p>
       </header>
 

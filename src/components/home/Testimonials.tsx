@@ -30,7 +30,7 @@ export function Testimonials({
   const Heading = headingLevel;
 
   return (
-    <section className="bg-forest-900 py-24 text-cream-50 lg:py-32" aria-labelledby="reviews-title">
+    <section id="reviews" className="scroll-mt-28 bg-forest-900 py-24 text-cream-50 lg:py-32" aria-labelledby="reviews-title">
       <div className="container-page">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow justify-center text-leaf-200">Kind words</p>

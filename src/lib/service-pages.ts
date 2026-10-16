@@ -13,7 +13,9 @@ export type ServicePage = {
   image: StaticImageData;
   alt: string;
   paragraphs: string[];
+  includesLead?: string;
   includes: string[];
+  cta: string;
 };
 
 export const servicePages: ServicePage[] = [
@@ -21,110 +23,115 @@ export const servicePages: ServicePage[] = [
     slug: "tree-removal",
     name: "Tree Removal",
     summary:
-      "Some trees have to come down. Storm damage, disease, or one leaning over the house. We take them down carefully, even in tight spots close to your home.",
+      "Sometimes a tree has reached the end of its useful life. It may be dead, badly damaged, leaning in a dangerous direction, or simply too close to your home or other structures.",
     image: removalImg,
     alt: "A crane lifting a cut section of trunk during a residential tree removal",
     paragraphs: [
-      "We start with a look at the tree, the targets around it, and the way it wants to fall. A tree between the house and the garage is lowered in pieces. An open yard can be a simpler drop. Either way, you hear the plan and the price before we start.",
-      "When the tree is down, we chip or haul the brush and rake the work area. If you also want the stump gone, we can grind it on the same visit or schedule it after.",
+      "When removal is the safest option, we'll help you understand what needs to happen before the work begins. We take the time to plan the job carefully, especially when we're working around houses, driveways, landscaping, fences, or other obstacles.",
     ],
+    includesLead: "You can expect:",
     includes: [
-      "A free on-site look and a clear quote",
-      "Removal planned around your house, fence, and garden",
-      "Brush chipped or hauled away",
-      "The work area raked before we leave",
+      "A careful look at the tree and surrounding property",
+      "A clear explanation of the work involved",
+      "Safety-focused removal",
+      "Care around your home and landscaping",
+      "Cleanup when the job is finished",
     ],
+    cta: "Get a Tree Removal Estimate",
   },
   {
     slug: "tree-pruning",
     name: "Tree Pruning",
-    summary:
-      "Good pruning keeps a tree healthy, lets light into your yard, and keeps branches clear of your roof. We prune to help the tree, never just to shorten it.",
+    summary: "Good pruning isn't about taking off as many branches as possible.",
     image: pruningImg,
     alt: "An arborist pruning the canopy of a large shade tree",
     paragraphs: [
-      "We take out dead, broken, and rubbing wood, and we thin where the canopy is crowded. The goal is a tree that keeps its shape and stays safer around your home.",
-      "We do not top trees. Topping leaves weak sprouts and a tree that is worse off than when we arrived. If a tree is too large for the spot, we will say so and talk through real options, including removal.",
-      "Oaks in Dane County are a special case. We avoid pruning oaks in spring and early summer, when oak wilt is easiest to spread.",
+      "The right cuts can remove dead or damaged branches, improve the tree's structure, and help reduce problems as the tree grows. The wrong cuts can leave a tree weaker or more vulnerable to disease and damage.",
+      "We'll look at the tree as a whole and determine what actually needs to be pruned—and what should be left alone.",
     ],
+    includesLead: "Our pruning work can help with:",
     includes: [
-      "Deadwood and broken limbs removed",
-      "Clearance from roofs and structures",
-      "Pruning cuts made to help the tree",
-      "Debris cleaned up before we leave",
+      "Dead or damaged branches",
+      "Overgrown or crowded limbs",
+      "Structural problems",
+      "Branches growing toward structures",
+      "Improving the tree's overall shape and health",
     ],
+    cta: "Ask About Tree Pruning",
   },
   {
     slug: "stump-grinding",
     name: "Stump Grinding",
-    summary:
-      "A stump left behind is a tripping hazard and an eyesore. We grind it below grade so you can replant, reseed, or just have your yard back.",
+    summary: "Removing a tree doesn't always mean the job is finished.",
     image: stumpImg,
     alt: "A stump grinder removing a tree stump from a lawn",
     paragraphs: [
-      "We grind the stump and the flare of the roots below the lawn. The hole is filled with the grindings. You can top that with soil and seed when you are ready.",
-      "Tell us about underground lines, irrigation, and nearby plantings before we arrive. If the grinder cannot reach a stump, we will say so on the estimate instead of forcing the job.",
+      "An old stump can get in the way of mowing, landscaping, or whatever you want to do with the space next. Stumps can also become a place for insects and decay to settle in.",
+      "We'll grind the stump down below the surrounding grade so you can reclaim the area and move on with your plans.",
     ],
+    includesLead: "Stump grinding is a good option when you want to:",
     includes: [
-      "Stump ground below lawn grade",
-      "Surface roots in the way of the grinder taken down",
-      "Grindings left in the hole",
-      "A free look if you are not sure the stump can be reached",
+      "Clear space for landscaping",
+      "Make mowing easier",
+      "Remove an old, unsightly stump",
+      "Prepare the area for something new",
     ],
+    cta: "Get a Stump Grinding Estimate",
   },
   {
     slug: "disease-management",
     name: "Disease Management",
-    summary:
-      "When a tree is struggling, we figure out why and tell you plainly whether it can be saved. Oak wilt, ash borers, and decline are problems we see across Dane County.",
+    summary: "A tree that doesn't look right isn't necessarily a tree that needs to come down.",
     image: diseaseImg,
     alt: "Close view of healthy green leaves in a cared-for tree canopy",
     paragraphs: [
-      "Josh looks at the leaves, the trunk, and the site, then tells you what he sees in plain language. Some trees can be pruned or watched. Some should come down before they fail. If we are not the right people for a lab test or a treatment, we will say that too.",
-      "We will not promise a cure. A sick tree is a living thing, and the honest answer is sometimes removal.",
+      "Brown leaves, thinning branches, unusual growth, or changes in the bark can have several different causes. Before deciding what to do, it's important to understand what's actually happening.",
+      "We'll take a closer look at the tree, identify signs of disease or other problems, and explain what options make sense.",
     ],
+    includesLead: "Depending on the situation, we may recommend:",
     includes: [
-      "An on-site look by an ISA Certified Arborist",
-      "A plain explanation of what is going on",
-      "Options, including leaving the tree alone",
-      "A quote only for work that actually helps",
+      "Monitoring the tree",
+      "Pruning affected areas",
+      "Treatment",
+      "Changes to tree care",
+      "Removal when the tree has become a safety concern",
     ],
+    cta: "Talk to an Arborist",
   },
   {
     slug: "lot-clearing",
     name: "Lot Clearing",
     summary:
-      "We clear trees and brush from a residential lot so you can see the ground again. You get a walk-through and a price before any cutting starts.",
+      "Getting a property ready for a new project can mean dealing with trees, brush, and other growth that needs to come out of the way.",
     image: lotImg,
     alt: "An arborist feeding branches into a wood chipper during a cleanup",
     paragraphs: [
-      "Lot clearing for us means trees, brush, and the woody mess that comes with them. We mark what stays and what goes, then cut, chip, and haul.",
-      "We do not pull permits, grade soil, or build driveways. If your project needs that, we will stick to the tree work and leave the rest to the trades who do it.",
+      "Whether you're preparing for construction, opening up an overgrown area, or simply need to clear part of your property, we'll help you figure out what needs to be removed and what can stay.",
+      "We'll approach the work with the surrounding property in mind, rather than treating everything as something that automatically needs to go.",
     ],
-    includes: [
-      "A walk of the lot and a written scope",
-      "Trees and brush cut and hauled or chipped",
-      "Stumps quoted separately if you want them ground",
-      "A tidy site when the cutting is done",
-    ],
+    includes: [],
+    cta: "Talk About Your Project",
   },
   {
     slug: "storm-damage",
     name: "Storm Damage",
     summary:
-      "Hanging limbs and split trunks cannot wait. Call and we will come take a look, then take the hazard down safely.",
+      "Wisconsin weather can be hard on trees. Strong winds, heavy snow, and ice can leave branches broken or trees damaged without much warning.",
     image: stormImg,
     alt: "Storm-damaged limbs and branches across a driveway, ready for cleanup",
     paragraphs: [
-      "After a storm, start with anything still hanging over the house, the driveway, or a walkway. Call us and describe what you see. We will tell you when we can get there.",
-      "We make the tree safe first, then clean up the brush. If the rest of the tree should come down, that is a separate quote so you can decide without pressure.",
+      "If a storm has damaged a tree on your property, don't assume it's safe just because it's still standing.",
+      "We'll assess the damage and help you determine what needs immediate attention and what can wait.",
     ],
+    includesLead: "We can help with:",
     includes: [
-      "A phone call with a real person on our crew",
-      "Hazard limbs and split trunks taken down",
-      "Brush hauled or chipped",
-      "A straight price before extra work starts",
+      "Broken or hanging branches",
+      "Storm-damaged trees",
+      "Trees that have partially fallen",
+      "Damage near homes or other structures",
+      "Cleanup and removal",
     ],
+    cta: "Get Help With Storm Damage",
   },
 ];
 

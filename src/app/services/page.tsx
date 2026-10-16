@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { ArboristBadge } from "@/components/ArboristBadge";
 import { CtaBanner } from "@/components/CtaBanner";
 import { ServiceBlock } from "@/components/ServiceBlock";
+import { ServiceTabs } from "@/components/ServiceTabs";
 import { ServiceArea } from "@/components/home/ServiceArea";
 import { Why } from "@/components/home/Why";
 import { Breadcrumb, PageHero } from "@/components/PageHero";
@@ -14,15 +16,16 @@ import autumnImg from "@/assets/images/canopy-autumn.jpg";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "If a tree can be kept healthy and safe, Canopy Tree Care will tell you how. Free estimates in Madison and Dane County.",
+    "From removing a hazardous tree to helping a healthy one grow better, Canopy Tree Care provides practical tree care for homeowners throughout Madison and Dane County.",
 };
 
 export default function ServicesPage() {
   return (
     <>
       <PageHero
+        eyebrow="Tree care services"
         title="Services"
-        description="Pruning, removal, stumps, and sick trees across Madison and Dane County."
+        description="From removing a hazardous tree to helping a healthy one grow better, we provide practical tree care for homeowners throughout Madison and Dane County."
       />
       <Breadcrumb className="bg-cream-50" items={[{ label: "Home", href: "/" }, { label: "Services" }]} />
 
@@ -58,33 +61,36 @@ export default function ServicesPage() {
             </h2>
             <div className="mt-6 space-y-4 text-ink-muted">
               <p>
-                If a tree can be kept healthy and safe, we&apos;ll tell you how. If it really has to
-                come down, we&apos;ll take it down carefully and clean up after ourselves.
+                Not every tree needs to be removed. Sometimes a good pruning, a little attention, or
+                the right treatment is all it needs.
               </p>
               <p>
-                Our crew has the training and the equipment for jobs of every size, and Josh has the
-                eye to tell what a tree actually needs. Pruning, removal, a stubborn stump, or a sick
-                tree you&apos;re not sure about, we can help.
+                We&apos;ll look at the tree, what&apos;s happening around it, and any safety concerns
+                before recommending what to do. If the tree can safely stay, we&apos;ll tell you. If
+                removal is the better choice, we&apos;ll explain why.
               </p>
               <p>
-                Estimates are always free, so give us a call and we&apos;ll come take a look.
+                Our goal isn&apos;t to sell you the most work. It&apos;s to help you make the right
+                decision for your tree and your property.
               </p>
             </div>
             <Link
               href="/contact"
-              className="mt-10 inline-flex rounded-full border border-forest-800 px-7 py-3.5 font-semibold text-forest-900 transition-colors hover:bg-white"
+              className="group mt-10 inline-flex items-center gap-2 rounded-full border border-forest-800 px-7 py-3.5 font-semibold text-forest-900 transition-colors hover:bg-white"
             >
-              Get a Free Estimate
+              Talk to an Arborist
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </Link>
           </div>
         </div>
       </section>
 
+      <ServiceTabs services={servicePages.map(({ slug, name }) => ({ slug, name }))} />
       {servicePages.map((service, index) => (
         <ServiceBlock key={service.slug} service={service} flip={index % 2 === 1} />
       ))}
-      <Why />
-      <ServiceArea />
+      <Why variant="services" />
+      <ServiceArea variant="services" />
       <CtaBanner />
     </>
   );
