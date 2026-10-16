@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import type { CSSProperties } from "react";
 import { Manrope } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -35,7 +36,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${manrope.variable} antialiased`} style={{ "--site-header-height": "8.5rem" }}>
+    <html lang="en" className={`${manrope.variable} antialiased`} style={{ "--site-header-height": "8.5rem" } as CSSProperties}>
       <body className="flex min-h-dvh flex-col pb-20 md:pb-0">
         <a
           href="#main"
