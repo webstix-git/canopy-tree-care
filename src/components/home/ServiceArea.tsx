@@ -1,9 +1,9 @@
-import { MapPin } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import { site } from "@/lib/site";
 
 const places = ["Madison", "Dane County", "Surrounding Communities"];
 
-export function ServiceArea({ variant = "home" }: { variant?: "home" | "services" }) {
+export function ServiceArea({ variant = "home" }: { variant?: "home" | "services" | "about" }) {
   return (
     <section id="service-area" className="container-page scroll-mt-28 py-24 lg:py-32" aria-labelledby="service-area-title">
       <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -21,12 +21,18 @@ export function ServiceArea({ variant = "home" }: { variant?: "home" | "services
                 </p>
                 <p>
                   Not sure if you&apos;re in our service area? Give us a call at{" "}
-                  <a href={site.phoneHref} className="font-semibold text-forest-700 underline">
+                  <a href={site.phoneHref} className="inline-flex items-center gap-1 font-semibold text-forest-700 underline">
+                    <Phone className="size-4" aria-hidden="true" />
                     {site.phone}
                   </a>{" "}
                   and ask.
                 </p>
               </>
+            ) : variant === "about" ? (
+              <p>
+                We&apos;re based in Madison and work throughout Dane County and nearby communities. Not
+                sure if we come to your area? Give us a call and ask. We&apos;re happy to let you know.
+              </p>
             ) : (
               <p>
                 We&apos;re based in Madison and work throughout Dane County and nearby communities. Not
@@ -45,8 +51,8 @@ export function ServiceArea({ variant = "home" }: { variant?: "home" | "services
         </div>
         <div className="overflow-hidden rounded-[2rem] shadow-[0_30px_60px_-36px_rgb(20_48_31/0.45)] ring-1 ring-forest-900/10">
           <iframe
-            src="https://www.google.com/maps?q=Dane+County,+WI&z=9&output=embed"
-            title="Map of Madison and Dane County, Wisconsin"
+            src="https://www.google.com/maps?q=1705+Moorland+Rd,+Madison,+WI+53713&z=15&output=embed"
+            title="Map of 1705 Moorland Rd., Madison, WI 53713"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             allowFullScreen

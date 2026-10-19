@@ -1,16 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check, Sparkles } from "lucide-react";
 import { ArboristBadge } from "@/components/ArboristBadge";
 import { TrustBar } from "@/components/home/TrustBar";
 import { site } from "@/lib/site";
 
-const highlights = [
-  "ISA Certified Arborist",
-  "Locally Owned",
-  "Serving Madison & Dane County",
-  "Careful, Honest Work",
-];
+const highlights = ["ISA Certified Arborist", "Locally Owned", "Serving Madison & Dane County"];
 
 export function Hero() {
   return (
@@ -20,13 +14,17 @@ export function Hero() {
         className="pointer-events-none absolute -top-[6.5rem] left-0 h-[34rem] w-[46rem] bg-[radial-gradient(ellipse_at_0%_0%,rgb(214_228_196)_0%,rgb(226_236_210/0.72)_38%,transparent_70%)] sm:-top-[8.5rem]"
       />
 
-      <div className="container-page relative grid items-center gap-16 pt-8 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:pt-12 lg:pb-24">
+      <div className="container-page relative grid items-center gap-16 pt-8 pb-20 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-10 lg:pt-12 lg:pb-24">
         <div className="relative z-10">
           <p className="text-xs font-bold tracking-[0.18em] text-forest-700 uppercase">
             Madison&apos;s local tree care crew
           </p>
           <h1 className="mt-5 max-w-xl text-[2.6rem] leading-[1.08] font-medium tracking-tight text-forest-900 sm:text-6xl lg:text-[3.6rem]">
-            Tree Care You Can Trust, <span className="text-forest-600">Rooted in Madison.</span>
+            Tree Care
+            <br />
+            You Can Trust,
+            <br />
+            <span className="font-bold text-forest-600">Rooted in Madison.</span>
           </h1>
           <p className="mt-6 max-w-lg leading-relaxed text-ink-muted">
             Trees don&apos;t always make it easy to know what they need. Whether you have a tree
@@ -58,21 +56,19 @@ export function Hero() {
         </div>
 
         <div className="relative pb-10">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem] shadow-[0_24px_50px_-28px_rgb(20_48_31/0.35)]">
-            <Image
+          <div className="relative aspect-[1584/1436] overflow-hidden rounded-[1.35rem] shadow-[0_24px_50px_-28px_rgb(20_48_31/0.35)]">
+            <img
               src="/images/hero-lakeside.jpg"
               alt="Crew member clearing a fallen tree beside a lakeside home"
-              fill
-              preload
-              sizes="(min-width: 1024px) 46vw, 100vw"
-              className="object-cover object-center"
+              className="absolute max-w-none"
+              style={{ width: "138.889%", height: "114.903%", left: "-38.889%", top: "-5.71%" }}
             />
           </div>
           <div className="absolute -top-3 -right-3 z-10 flex max-w-[13rem] items-start gap-2 rounded-xl bg-forest-900 px-3 py-2 text-cream-50 shadow-md">
             <Sparkles className="mt-0.5 size-4 shrink-0 text-sun-400" aria-hidden="true" />
             <div>
               <p className="text-sm leading-tight font-bold text-white">We Leave It Tidy</p>
-              <p className="text-xs text-cream-100/80">Your yard is left clean.</p>
+              <p className="text-xs text-cream-100/80">Your Yard Is Left Clean.</p>
             </div>
           </div>
 

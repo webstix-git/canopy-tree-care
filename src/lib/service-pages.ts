@@ -47,7 +47,7 @@ export const servicePages: ServicePage[] = [
     alt: "An arborist pruning the canopy of a large shade tree",
     paragraphs: [
       "The right cuts can remove dead or damaged branches, improve the tree's structure, and help reduce problems as the tree grows. The wrong cuts can leave a tree weaker or more vulnerable to disease and damage.",
-      "We'll look at the tree as a whole and determine what actually needs to be pruned—and what should be left alone.",
+      "We'll look at the tree as a whole and determine what actually needs to be pruned, and what should be left alone.",
     ],
     includesLead: "Our pruning work can help with:",
     includes: [

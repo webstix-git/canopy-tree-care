@@ -23,7 +23,6 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Tree care services"
         title="Services"
         description="From removing a hazardous tree to helping a healthy one grow better, we provide practical tree care for homeowners throughout Madison and Dane County."
       />

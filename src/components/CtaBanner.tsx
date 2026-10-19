@@ -6,18 +6,18 @@ import canopyImg from "@/assets/images/cta-canopy.jpg";
 
 export function CtaBanner({
   id,
-  description = "Tell us what's going on and we'll come take a look. We'll explain what we find and help you figure out what makes sense for your property.",
+  description = "Tell us what's going on and we'll come take a look. We'll explain what we find, what we recommend, and what it will take to get the job done right.",
 }: {
   id?: string;
   description?: string;
 }) {
   return (
-    <section id={id} className={`relative overflow-hidden py-20 lg:py-28 ${id ? "scroll-mt-28" : ""}`}>
+    <section id={id} className={`relative flex h-[400px] items-center overflow-hidden ${id ? "scroll-mt-28" : ""}`}>
       <Image src={canopyImg} alt="" fill placeholder="blur" sizes="100vw" className="object-cover" />
-      <div aria-hidden="true" className="absolute inset-0 bg-[rgb(20_48_31/72%)]" />
+      <div aria-hidden="true" className="absolute inset-0 bg-[rgb(20_48_31/80%)] shadow-[inset_0_0_0_4px_rgb(255_255_255/0.28)]" />
       <div className="container-page relative mx-auto max-w-3xl text-center text-cream-50">
         <h2 className="text-4xl leading-tight text-white sm:text-5xl">Got a Tree You&apos;re Worried About?</h2>
-        <p className="mx-auto mt-5 max-w-xl text-cream-100">{description}</p>
+        <p className="mx-auto mt-5 max-w-[600px] text-cream-100">{description}</p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/contact"
@@ -27,10 +27,9 @@ export function CtaBanner({
           </Link>
           <a
             href={site.phoneHref}
-            className="inline-flex items-center gap-2 rounded-full border border-white px-7 py-3.5 font-semibold text-white transition-colors hover:bg-white/10"
+            className="inline-flex items-center gap-2 rounded-full border border-white bg-white/20 px-7 py-3.5 font-semibold text-white transition-colors hover:bg-white/30"
           >
-            <Phone className="size-4" aria-hidden="true" />
-            Call {site.phone}
+            Call <Phone className="size-4" aria-hidden="true" /> {site.phone}
           </a>
         </div>
       </div>

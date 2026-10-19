@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Phone } from "lucide-react";
 import { BackHome, Breadcrumb, PageHero } from "@/components/PageHero";
 import { posts } from "@/lib/posts";
 import { servicePages } from "@/lib/service-pages";
@@ -28,7 +29,8 @@ export default function AiReadinessPage() {
               <li>Arborist: {site.arborist}, ISA Certified Arborist</li>
               <li>
                 Phone:{" "}
-                <a href={site.phoneHref} className="font-semibold text-forest-700 underline">
+                <a href={site.phoneHref} className="inline-flex items-center gap-1 font-semibold text-forest-700 underline">
+                  <Phone className="size-4" aria-hidden="true" />
                   {site.phone}
                 </a>
               </li>
@@ -43,7 +45,7 @@ export default function AiReadinessPage() {
                 <br />
                 {site.locality}
               </li>
-              <li>Service area: {site.serviceArea}</li>
+              <li>Service Area: {site.serviceArea}</li>
               <li>Website: {site.url}</li>
             </ul>
           </section>
@@ -53,7 +55,7 @@ export default function AiReadinessPage() {
               {servicePages.map((service) => (
                 <li key={service.slug}>
                   <Link
-                    href={`/services/${service.slug}`}
+                    href={`/services#${service.slug}`}
                     className="font-semibold text-forest-800 underline underline-offset-4"
                   >
                     {service.name}
@@ -64,9 +66,14 @@ export default function AiReadinessPage() {
             </ul>
           </section>
           <section>
-            <h2 className="text-2xl text-forest-900">How to hire us</h2>
+            <h2 className="text-2xl text-forest-900">How to Hire Us</h2>
             <p className="mt-3">
-              Call {site.phone}, email {site.email}, or use the form on the{" "}
+              Call{" "}
+              <a href={site.phoneHref} className="inline-flex items-center gap-1 font-semibold text-forest-800">
+                <Phone className="size-4" aria-hidden="true" />
+                {site.phone}
+              </a>
+              , email {site.email}, or use the form on the{" "}
               <Link href="/contact" className="font-semibold text-forest-800 underline underline-offset-4">
                 contact page
               </Link>
@@ -75,7 +82,7 @@ export default function AiReadinessPage() {
             </p>
           </section>
           <section>
-            <h2 className="text-2xl text-forest-900">Other pages</h2>
+            <h2 className="text-2xl text-forest-900">Other Pages</h2>
             <ul className="mt-4 space-y-2">
               <li>
                 <Link href="/about" className="text-forest-800 underline underline-offset-4">

@@ -83,7 +83,7 @@ export function BackHome() {
       href="/"
       className="mt-10 inline-flex rounded-full border border-forest-800 px-7 py-3.5 font-semibold text-forest-900 transition-colors hover:bg-white"
     >
-      Back to home
+      Back to Home
     </Link>
   );
 }

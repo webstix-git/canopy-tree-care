@@ -111,40 +111,52 @@ export function Gallery({
           role="dialog"
           aria-modal="true"
           aria-label="Image viewer"
+          onClick={() => setActive(null)}
         >
-          <button
-            type="button"
-            className="absolute top-4 right-4 grid size-11 place-items-center rounded-full bg-white/10 text-white"
-            aria-label="Close image viewer"
-            onClick={() => setActive(null)}
-          >
-            <X className="size-5" />
-          </button>
           <button
             type="button"
             className="absolute top-1/2 left-4 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white"
             aria-label="Previous image"
-            onClick={() => setActive((current) => (current === null ? current : (current - 1 + photos.length) % photos.length))}
+            onClick={(event) => {
+              event.stopPropagation();
+              setActive((current) => (current === null ? current : (current - 1 + photos.length) % photos.length));
+            }}
           >
             <ChevronLeft className="size-5" />
           </button>
-          <figure className="max-h-[80vh] max-w-5xl">
-            <Image
-              src={photos[active].image}
-              alt={photos[active].alt}
-              width={1600}
-              height={1200}
-              className="max-h-[80vh] w-auto rounded-2xl object-contain"
-            />
-            <figcaption className="mt-3 text-center text-sm text-cream-100/80">
-              {active + 1} of {photos.length}
-            </figcaption>
-          </figure>
+          <div className="flex max-h-[86vh] max-w-5xl flex-col items-end">
+            <button
+              type="button"
+              className="mb-3 grid size-11 place-items-center rounded-full bg-white/15 text-white"
+              aria-label="Close image viewer"
+              onClick={(event) => {
+                event.stopPropagation();
+                setActive(null);
+              }}
+            >
+              <X className="size-5" />
+            </button>
+            <figure onClick={(event) => event.stopPropagation()}>
+              <Image
+                src={photos[active].image}
+                alt={photos[active].alt}
+                width={1600}
+                height={1200}
+                className="max-h-[76vh] w-auto rounded-2xl object-contain"
+              />
+              <figcaption className="mt-3 text-center text-sm text-cream-100/80">
+                {active + 1} of {photos.length}
+              </figcaption>
+            </figure>
+          </div>
           <button
             type="button"
             className="absolute top-1/2 right-4 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white"
             aria-label="Next image"
-            onClick={() => setActive((current) => (current === null ? current : (current + 1) % photos.length))}
+            onClick={(event) => {
+              event.stopPropagation();
+              setActive((current) => (current === null ? current : (current + 1) % photos.length));
+            }}
           >
             <ChevronRight className="size-5" />
           </button>

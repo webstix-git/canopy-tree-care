@@ -12,24 +12,36 @@ export function ServiceTabs({ services }: { services: ServiceTab[] }) {
   const jumping = useRef(false);
 
   useEffect(() => {
-    const sections = services
-      .map((service) => document.getElementById(service.slug))
-      .filter((section): section is HTMLElement => section !== null);
+    const update = () => {
+      if (jumping.current) return;
+      const marker =
+        Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--site-header-height")) || 136;
+      const line = marker + 80;
+      let best = services[0]?.slug ?? "";
+      let bestDistance = Number.POSITIVE_INFINITY;
+      for (const service of services) {
+        const section = document.getElementById(service.slug);
+        if (!section) continue;
+        const distance = Math.abs(section.getBoundingClientRect().top - line);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          best = service.slug;
+        }
+      }
+      setActive(best);
+    };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (jumping.current) return;
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        const id = visible[0]?.target.id;
-        if (id) setActive(id);
-      },
-      { rootMargin: "-20% 0px -60% 0px", threshold: [0.15, 0.35, 0.6] },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+    update();
+    const frame = window.requestAnimationFrame(update);
+    const timer = window.setTimeout(update, 120);
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("hashchange", update);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("hashchange", update);
+    };
   }, [services]);
 
   function selectService(event: MouseEvent<HTMLAnchorElement>, slug: string) {

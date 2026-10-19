@@ -75,10 +75,9 @@ export function Header() {
     <>
     <div className="relative z-40 bg-forest-900 text-cream-50">
       <div className="container-page flex flex-col items-center justify-between gap-1 py-2 text-center text-xs sm:flex-row sm:text-left sm:text-sm">
-        <p className="text-xs sm:text-sm">Locally owned and operated · Serving Madison, WI &amp; Dane County</p>
+        <p className="text-xs sm:text-sm">Locally Owned and Operated · Serving Madison, WI &amp; Dane County</p>
         <a href={site.phoneHref} className="inline-flex items-center gap-1.5 text-xs font-semibold text-sun-400 hover:text-sun-500 sm:text-sm">
-          <Phone className="size-3.5" aria-hidden="true" />
-          Storm damage? Call {site.phone}
+          Storm damage? Call <Phone className="size-3.5" aria-hidden="true" /> {site.phone}
         </a>
       </div>
     </div>
@@ -121,16 +120,11 @@ export function Header() {
                   if (!(next instanceof Node) || !event.currentTarget.contains(next)) setServicesMenu(false);
                 }}
               >
-                <Link
-                  href={link.href}
+                <button
+                  type="button"
                   className={`inline-flex items-center gap-1.5 ${itemClass}`}
                   aria-haspopup="true"
                   aria-expanded={servicesMenu}
-                  aria-current={active ? "page" : undefined}
-                  onClick={() => {
-                    servicesLock.current = true;
-                    setServicesMenu(false);
-                  }}
                   onFocus={() => {
                     if (!servicesLock.current) setServicesMenu(true);
                   }}
@@ -140,35 +134,44 @@ export function Header() {
                     className={`size-4 transition-transform duration-200 ${servicesMenu ? "rotate-180" : ""}`}
                     aria-hidden="true"
                   />
-                </Link>
+                </button>
                 <div
                   className={`absolute top-full left-0 z-50 pt-3 transition-all duration-200 ${
                     servicesMenu ? "visible opacity-100" : "invisible opacity-0"
                   }`}
                 >
-                  <ul className="min-w-56 rounded-2xl bg-white p-2 shadow-[0_24px_50px_-28px_rgb(20_48_31/0.55)] ring-1 ring-forest-900/10">
-                    {services.map((service) => {
-                      const serviceActive = pathname === `/services/${service.slug}`;
-                      return (
-                        <li key={service.slug}>
-                          <Link
-                            href={`/services/${service.slug}`}
-                            aria-current={serviceActive ? "page" : undefined}
-                            onClick={() => {
-                              servicesLock.current = true;
-                              setServicesMenu(false);
-                            }}
-                            className={`block rounded-xl px-4 py-2.5 text-base font-semibold transition-colors hover:bg-cream-100 hover:text-forest-700 ${
-                              serviceActive
-                                ? "text-forest-700 underline decoration-2 underline-offset-4 decoration-forest-700"
-                                : "text-forest-900"
-                            }`}
-                          >
-                            {service.name}
-                          </Link>
-                        </li>
-                      );
-                    })}
+                  <ul className="min-w-60 rounded-2xl bg-white p-2 shadow-[0_24px_50px_-28px_rgb(20_48_31/0.55)] ring-1 ring-forest-900/10">
+                    <li>
+                      <Link
+                        href="/services"
+                        aria-current={pathname === "/services" ? "page" : undefined}
+                        onClick={() => {
+                          servicesLock.current = true;
+                          setServicesMenu(false);
+                        }}
+                        className={`block rounded-xl px-4 py-2.5 text-base font-semibold transition-colors hover:bg-cream-100 hover:text-forest-700 ${
+                          pathname === "/services"
+                            ? "text-forest-700 underline decoration-2 underline-offset-4 decoration-forest-700"
+                            : "text-forest-900"
+                        }`}
+                      >
+                        Services Overview
+                      </Link>
+                    </li>
+                    {services.map((service) => (
+                      <li key={service.slug}>
+                        <Link
+                          href={`/services#${service.slug}`}
+                          onClick={() => {
+                            servicesLock.current = true;
+                            setServicesMenu(false);
+                          }}
+                          className="block rounded-xl px-4 py-2.5 text-base font-semibold text-forest-900 transition-colors hover:bg-cream-100 hover:text-forest-700"
+                        >
+                          {service.name}
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -224,45 +227,35 @@ export function Header() {
             {navLinks.map((link) =>
               link.href === "/services" ? (
                 <li key={link.href}>
-                  <div className="flex items-center">
-                    <Link
-                      href={link.href}
-                      onClick={() => setOpen(false)}
-                      aria-current={isCurrent(pathname, link.href) ? "page" : undefined}
-                      className={`block flex-1 rounded-2xl px-4 py-3.5 text-lg font-semibold hover:bg-cream-100 ${
-                        isCurrent(pathname, link.href)
-                          ? "text-forest-700 underline decoration-2 underline-offset-4 decoration-forest-700"
-                          : "text-forest-900"
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                    <button
-                      type="button"
-                      className="grid size-11 place-items-center rounded-full text-forest-900 hover:bg-cream-100"
-                      aria-expanded={servicesOpen}
-                      aria-label="Show services"
-                      onClick={() => setServicesOpen((value) => !value)}
-                    >
-                      <ChevronDown
-                        className={`size-5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
-                        aria-hidden="true"
-                      />
-                    </button>
-                  </div>
+                  <button
+                    type="button"
+                    className="flex w-full items-center justify-between rounded-2xl px-4 py-3.5 text-lg font-semibold text-forest-900 hover:bg-cream-100"
+                    aria-expanded={servicesOpen}
+                    onClick={() => setServicesOpen((value) => !value)}
+                  >
+                    {link.label}
+                    <ChevronDown
+                      className={`size-5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
+                      aria-hidden="true"
+                    />
+                  </button>
                   {servicesOpen ? (
                     <ul className="mb-1 ml-4 space-y-1 border-l border-forest-900/10 pl-3">
+                      <li>
+                        <Link
+                          href="/services"
+                          onClick={() => setOpen(false)}
+                          className="block rounded-xl px-3 py-2.5 font-semibold text-forest-800 hover:bg-cream-100"
+                        >
+                          Services Overview
+                        </Link>
+                      </li>
                       {services.map((service) => (
                         <li key={service.slug}>
                           <Link
-                            href={`/services/${service.slug}`}
+                            href={`/services#${service.slug}`}
                             onClick={() => setOpen(false)}
-                            aria-current={pathname === `/services/${service.slug}` ? "page" : undefined}
-                            className={`block rounded-xl px-3 py-2.5 font-semibold hover:bg-cream-100 ${
-                              pathname === `/services/${service.slug}`
-                                ? "text-forest-700 underline decoration-2 underline-offset-4 decoration-forest-700"
-                                : "text-forest-800"
-                            }`}
+                            className="block rounded-xl px-3 py-2.5 font-semibold text-forest-800 hover:bg-cream-100"
                           >
                             {service.name}
                           </Link>

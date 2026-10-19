@@ -1,3 +1,5 @@
+import { Phone } from "lucide-react";
+
 const steps = [
   {
     title: "Give Us a Call",
@@ -43,7 +45,16 @@ export function Process() {
               <span className="relative mx-auto grid size-14 place-items-center rounded-full bg-forest-800 font-display text-xl text-white ring-8 ring-cream-50">
                 {index + 1}
               </span>
-              <h3 className="mt-6 font-sans text-lg font-bold tracking-normal">{step.title}</h3>
+              <h3 className="mt-6 inline-flex items-center justify-center gap-1.5 font-sans text-lg font-bold tracking-normal">
+                {step.title === "Give Us a Call" ? (
+                  <>
+                    Give Us a Call
+                    <Phone className="size-4" aria-hidden="true" />
+                  </>
+                ) : (
+                  step.title
+                )}
+              </h3>
               <p className="mx-auto mt-2 max-w-xs leading-relaxed text-ink-muted">{step.text}</p>
             </li>
           ))}

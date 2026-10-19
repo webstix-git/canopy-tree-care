@@ -94,7 +94,7 @@ export function Blog() {
           href="/blog"
           className="inline-flex rounded-full border border-forest-800/20 bg-white px-7 py-3.5 font-semibold text-forest-900 transition-all hover:-translate-y-0.5 hover:border-forest-800/40"
         >
-          View more blog posts
+          View More Blog Posts
         </Link>
       </div>
       </div>

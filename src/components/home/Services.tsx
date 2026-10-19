@@ -63,7 +63,7 @@ export function Services() {
         {cards.map((card) => (
           <li key={card.slug} className={card.featured ? "md:col-span-2 lg:col-span-2" : undefined}>
             <Link
-              href={`/services/${card.slug}`}
+              href={`/services#${card.slug}`}
               className={`group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] bg-white text-forest-900 shadow-[0_18px_40px_-28px_rgb(20_48_31/0.45)] ring-1 ring-forest-900/10 ${
                 card.featured ? "lg:flex-row" : ""
               }`}
@@ -78,13 +78,11 @@ export function Services() {
                 />
               </div>
               <div
-                className={`flex flex-1 flex-col p-6 ${
-                  card.featured ? "justify-center text-left lg:p-8" : "justify-end"
-                }`}
+                className={`flex flex-1 flex-col p-6 ${card.featured ? "justify-center text-left lg:p-8" : ""}`}
               >
                 <h3 className="font-display text-2xl font-semibold tracking-tight text-forest-900">{card.name}</h3>
                 <p className="mt-2 text-[18px] leading-relaxed text-ink-muted">{card.text}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-forest-700">
+                <span className={`inline-flex items-center gap-1 text-sm font-bold text-forest-700 ${card.featured ? "mt-4" : "mt-auto pt-4"}`}>
                   Learn About {card.name}
                   <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
                 </span>

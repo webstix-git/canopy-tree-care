@@ -12,6 +12,23 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+function PhoneText({ text }: { text: string }) {
+  const parts = text.split(site.phone);
+  if (parts.length === 1) return text;
+
+  return parts.map((part, index) => (
+    <span key={`${index}-${part}`}>
+      {index > 0 ? (
+        <a href={site.phoneHref} className="inline-flex items-center gap-1 font-semibold text-forest-800">
+          <Phone className="size-3.5" aria-hidden="true" />
+          {site.phone}
+        </a>
+      ) : null}
+      {part}
+    </span>
+  ));
+}
+
 export const instant = false;
 
 export function generateStaticParams() {
@@ -85,9 +102,34 @@ export default async function BlogPostPage({ params }: Props) {
                     </ul>
                   );
                 }
-                return <p key={block.text}>{block.text}</p>;
+                return (
+                  <p key={block.text}>
+                    <PhoneText text={block.text} />
+                  </p>
+                );
               })}
             </div>
+
+            {post.ending ? (
+              <div className="mt-10 max-w-3xl border-t border-forest-900/10 pt-8">
+                <h2 className="text-3xl text-forest-900">{post.ending.title}</h2>
+                <p className="mt-4 leading-relaxed text-ink-muted">{post.ending.text}</p>
+                <div className="mt-6 flex flex-wrap items-center gap-3">
+                  <Link
+                    href="/contact"
+                    className="rounded-full bg-forest-800 px-6 py-3 font-semibold text-white transition-colors hover:bg-forest-900"
+                  >
+                    Get a Free Estimate
+                  </Link>
+                  <a
+                    href={site.phoneHref}
+                    className="inline-flex items-center gap-2 rounded-full border border-forest-800 px-6 py-3 font-semibold text-forest-900 transition-colors hover:bg-cream-100"
+                  >
+                    Call <Phone className="size-4" aria-hidden="true" /> {site.phone}
+                  </a>
+                </div>
+              </div>
+            ) : null}
           </article>
 
           <aside className="space-y-6 lg:sticky lg:top-28">

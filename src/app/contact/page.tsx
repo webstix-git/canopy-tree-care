@@ -49,24 +49,38 @@ export default function ContactPage() {
         <div className="container-page grid items-start gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
           <EstimateForm />
           <div>
-            <h2 className="text-3xl">Talk to us directly</h2>
+            <h2 className="text-3xl">Talk to Us Directly</h2>
             <ul className="mt-8 space-y-6">
               {details.map(({ icon: Icon, label, href, text }) => (
                 <li key={label}>
-                  <a href={href} className="flex items-start gap-3">
-                    <Icon className="mt-1 size-5 shrink-0 text-forest-700" aria-hidden="true" />
+                  <a href={href} className="group flex items-start gap-3">
+                    <Icon className="mt-1 size-5 shrink-0 text-forest-700 transition-colors group-hover:text-sun-600" aria-hidden="true" />
                     <span>
-                      <span className="block text-sm text-ink-muted">{label}</span>
-                      <span className="font-bold text-forest-900">{text}</span>
+                      <span className="block text-sm text-ink-muted transition-colors group-hover:text-forest-700">{label}</span>
+                      <span className="font-bold text-forest-900 transition-colors group-hover:text-forest-600">{text}</span>
                     </span>
                   </a>
                 </li>
               ))}
             </ul>
             <p className="mt-8 text-ink-muted">
-              We serve {site.serviceArea}. For storm damage, call {site.phone} and we&apos;ll tell
-              you when we can get there.
+              We serve {site.serviceArea}. For storm damage, call{" "}
+              <a href={site.phoneHref} className="inline-flex items-center gap-1.5 font-semibold text-forest-800">
+                <Phone className="size-4" aria-hidden="true" />
+                {site.phone}
+              </a>{" "}
+              and we&apos;ll tell you when we can get there.
             </p>
+            <div className="mt-8 overflow-hidden rounded-[2rem] shadow-[0_30px_60px_-36px_rgb(20_48_31/0.45)] ring-1 ring-forest-900/10">
+              <iframe
+                src="https://www.google.com/maps?q=1705+Moorland+Rd,+Madison,+WI+53713&z=15&output=embed"
+                title="Map of 1705 Moorland Rd., Madison, WI 53713"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+                className="aspect-[4/3] w-full border-0"
+              />
+            </div>
           </div>
         </div>
       </section>

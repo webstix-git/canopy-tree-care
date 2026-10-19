@@ -20,27 +20,61 @@ import atWork from "@/assets/images/arborist-at-work.jpg";
 import lakeside from "@/assets/images/hero-lakeside.jpg";
 import autumn from "@/assets/images/canopy-autumn.jpg";
 
-const photos: { image: StaticImageData; alt: string }[] = [
-  { image: storm, alt: "Storm-damaged limbs and branches across a driveway, ready for cleanup" },
-  { image: cleanup, alt: "An arborist feeding branches into a wood chipper" },
-  { image: stump, alt: "Stump grinding inside an orange safety perimeter" },
-  { image: spar, alt: "A tall trunk being removed in sections beside a house" },
-  { image: team, alt: "The Canopy Tree Care crew out in the field" },
-  { image: property, alt: "A cared-for tree on a residential property" },
-  { image: removal, alt: "A crane lifting a cut section of trunk during a residential tree removal" },
-  { image: removalHouse, alt: "Tree removal work close to a house" },
-  { image: pruning, alt: "An arborist pruning the canopy of a large shade tree" },
-  { image: grinding, alt: "A stump grinder working in a lawn" },
-  { image: stumpClose, alt: "A fresh stump left after a removal, before grinding" },
-  { image: health, alt: "Green leaves in a cared-for tree canopy" },
-  { image: climber, alt: "An arborist climbing in a mature tree" },
-  { image: atWork, alt: "An arborist in a helmet and harness working among branches" },
-  { image: lakeside, alt: "Mature trees along a Wisconsin shoreline" },
-  { image: autumn, alt: "Golden autumn tree canopy against a blue sky" },
+const groups: { slug: string; name: string; photos: { image: StaticImageData; alt: string }[] }[] = [
+  {
+    slug: "tree-removal",
+    name: "Tree Removal",
+    photos: [
+      { image: spar, alt: "A tall trunk being removed in sections beside a house" },
+      { image: removal, alt: "A crane lifting a cut section of trunk during a residential tree removal" },
+      { image: removalHouse, alt: "Tree removal work close to a house" },
+      { image: team, alt: "The Canopy Tree Care crew out in the field" },
+    ],
+  },
+  {
+    slug: "tree-pruning",
+    name: "Tree Pruning",
+    photos: [
+      { image: pruning, alt: "An arborist pruning the canopy of a large shade tree" },
+      { image: climber, alt: "An arborist climbing in a mature tree" },
+      { image: atWork, alt: "An arborist in a helmet and harness working among branches" },
+      { image: lakeside, alt: "Mature trees along a Wisconsin shoreline" },
+    ],
+  },
+  {
+    slug: "stump-grinding",
+    name: "Stump Grinding",
+    photos: [
+      { image: stump, alt: "Stump grinding inside an orange safety perimeter" },
+      { image: grinding, alt: "A stump grinder working in a lawn" },
+      { image: stumpClose, alt: "A fresh stump left after a removal, before grinding" },
+    ],
+  },
+  {
+    slug: "disease-management",
+    name: "Disease Management",
+    photos: [
+      { image: health, alt: "Green leaves in a cared-for tree canopy" },
+      { image: property, alt: "A cared-for tree on a residential property" },
+      { image: autumn, alt: "Golden autumn tree canopy against a blue sky" },
+    ],
+  },
+  {
+    slug: "lot-clearing",
+    name: "Lot Clearing",
+    photos: [{ image: cleanup, alt: "An arborist feeding branches into a wood chipper" }],
+  },
+  {
+    slug: "storm-damage",
+    name: "Storm Damage",
+    photos: [{ image: storm, alt: "Storm-damaged limbs and branches across a driveway, ready for cleanup" }],
+  },
 ];
 
 export function PhotoGallery() {
+  const [service, setService] = useState(groups[0].slug);
   const [active, setActive] = useState<number | null>(null);
+  const photos = groups.find((group) => group.slug === service)?.photos ?? groups[0].photos;
 
   useEffect(() => {
     if (active === null) return;
@@ -56,12 +90,44 @@ export function PhotoGallery() {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKey);
     };
-  }, [active]);
+  }, [active, photos.length]);
 
   return (
-    <section className="bg-white py-16 lg:py-24">
-      <div className="container-page">
-        <ul className="grid grid-cols-2 gap-4 lg:grid-cols-3">
+    <>
+      <div
+        className="sticky z-40 border-y border-forest-900/10 bg-cream-50/95 backdrop-blur-md"
+        style={{ top: "var(--site-header-height)" }}
+      >
+        <div
+          className="container-page grid w-full grid-cols-2 gap-2 py-3 sm:grid-cols-3 lg:grid-cols-6"
+          role="tablist"
+          aria-label="Gallery services"
+        >
+          {groups.map((group) => {
+            const selected = group.slug === service;
+            return (
+              <button
+                key={group.slug}
+                type="button"
+                role="tab"
+                aria-selected={selected}
+                onClick={() => {
+                  setService(group.slug);
+                  setActive(null);
+                }}
+                className={`flex items-center justify-center rounded-full px-3 py-2 text-center text-sm font-bold transition-colors ${
+                  selected ? "bg-forest-800 text-white" : "text-forest-800 hover:bg-cream-100"
+                }`}
+              >
+                {group.name}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <section className="bg-white py-16 lg:py-24">
+        <ul className="container-page grid grid-cols-2 gap-4 lg:grid-cols-3">
           {photos.map((photo, index) => (
             <li key={photo.alt}>
               <button
@@ -82,7 +148,7 @@ export function PhotoGallery() {
             </li>
           ))}
         </ul>
-      </div>
+      </section>
 
       {active !== null ? (
         <div
@@ -90,39 +156,51 @@ export function PhotoGallery() {
           role="dialog"
           aria-modal="true"
           aria-label="Image viewer"
+          onClick={() => setActive(null)}
         >
-          <button
-            type="button"
-            className="absolute top-4 right-4 grid size-11 place-items-center rounded-full bg-white/10 text-white"
-            aria-label="Close image viewer"
-            onClick={() => setActive(null)}
-          >
-            <X className="size-5" />
-          </button>
           <button
             type="button"
             className="absolute top-1/2 left-4 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white"
             aria-label="Previous image"
-            onClick={() => setActive((current) => (current === null ? current : (current - 1 + photos.length) % photos.length))}
+            onClick={(event) => {
+              event.stopPropagation();
+              setActive((current) => (current === null ? current : (current - 1 + photos.length) % photos.length));
+            }}
           >
             <ChevronLeft className="size-5" />
           </button>
-          <figure className="max-h-[80vh] max-w-5xl">
-            <Image src={photos[active].image} alt={photos[active].alt} className="max-h-[80vh] w-auto rounded-2xl object-contain" />
-            <figcaption className="mt-3 text-center text-sm text-cream-100/80">
-              {active + 1} of {photos.length}
-            </figcaption>
-          </figure>
+          <div className="flex max-h-[86vh] max-w-5xl flex-col items-end">
+            <button
+              type="button"
+              className="mb-3 grid size-11 place-items-center rounded-full bg-white/15 text-white"
+              aria-label="Close image viewer"
+              onClick={(event) => {
+                event.stopPropagation();
+                setActive(null);
+              }}
+            >
+              <X className="size-5" />
+            </button>
+            <figure onClick={(event) => event.stopPropagation()}>
+              <Image src={photos[active].image} alt={photos[active].alt} className="max-h-[76vh] w-auto rounded-2xl object-contain" />
+              <figcaption className="mt-3 text-center text-sm text-cream-100/80">
+                {active + 1} of {photos.length}
+              </figcaption>
+            </figure>
+          </div>
           <button
             type="button"
             className="absolute top-1/2 right-4 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white"
             aria-label="Next image"
-            onClick={() => setActive((current) => (current === null ? current : (current + 1) % photos.length))}
+            onClick={(event) => {
+              event.stopPropagation();
+              setActive((current) => (current === null ? current : (current + 1) % photos.length));
+            }}
           >
             <ChevronRight className="size-5" />
           </button>
         </div>
       ) : null}
-    </section>
+    </>
   );
 }

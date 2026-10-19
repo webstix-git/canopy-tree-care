@@ -1,33 +1,55 @@
-import { Award, Eye, Leaf, MapPin, MessageSquare, Sparkles } from "lucide-react";
+const icon = {
+  certified: "/icons/icons/certified%20badge.svg",
+  answers: "/icons/Homepage/Stats%20bar/answer-dg.svg",
+  cleanup: "/icons/Homepage/Stats%20bar/clean-dg.svg",
+  honest: "/icons/Homepage/Stats%20bar/honest-dg.svg",
+  location: "/icons/Homepage/Stats%20bar/location-dg.svg",
+  tree: "/icons/icons/tree.svg",
+};
+
+function GoldIcon({ src }: { src: string }) {
+  return (
+    <span
+      aria-hidden="true"
+      className="inline-block size-8 shrink-0 bg-[#f2b84b]"
+      style={{
+        WebkitMask: `url("${src}") center / contain no-repeat`,
+        mask: `url("${src}") center / contain no-repeat`,
+        WebkitMaskMode: "alpha",
+        maskMode: "alpha",
+      }}
+    />
+  );
+}
 
 const homeReasons = [
   {
-    icon: Award,
+    icon: icon.certified,
     title: "Certified Expertise",
     text: "Our work is led by an ISA Certified Arborist who understands tree health, structure, and safety.",
   },
   {
-    icon: MessageSquare,
+    icon: icon.answers,
     title: "Good, Straight Answers",
     text: "We'll explain what we're seeing and give you practical options without making things complicated.",
   },
   {
-    icon: Sparkles,
+    icon: icon.cleanup,
     title: "A Proper Cleanup",
     text: "Tree work can be messy. We take care to leave your yard, driveway, and property clean when we're finished.",
   },
   {
-    icon: Eye,
+    icon: icon.tree,
     title: "We Look at the Whole Tree",
-    text: "We consider the tree's health, structure, location, and the things around it—not just the branch that caught your attention.",
+    text: "We consider the tree's health, structure, location, and the things around it, not just the branch that caught your attention.",
   },
   {
-    icon: Leaf,
+    icon: icon.honest,
     title: "Honest Advice",
     text: "If a tree can safely stay, we'll tell you. Removal isn't always the answer.",
   },
   {
-    icon: MapPin,
+    icon: icon.location,
     title: "Locally Owned",
     text: "We're part of the Madison community and care about doing work we're proud to put our name on.",
   },
@@ -35,32 +57,32 @@ const homeReasons = [
 
 const servicesReasons = [
   {
-    icon: Award,
+    icon: icon.certified,
     title: "Certified Expertise",
     text: "Our work is led by an ISA Certified Arborist with a focus on safe, responsible tree care.",
   },
   {
-    icon: MessageSquare,
+    icon: icon.answers,
     title: "Good, Straight Answers",
     text: "We'll explain what we're seeing and give you practical options without making things complicated.",
   },
   {
-    icon: Sparkles,
+    icon: icon.cleanup,
     title: "A Careful Cleanup",
     text: "We know tree work can make a mess. We'll take care of the cleanup when the job is done.",
   },
   {
-    icon: Eye,
+    icon: icon.tree,
     title: "We Look at the Whole Tree",
     text: "We consider the tree's health, structure, location, and what's around it before making a recommendation.",
   },
   {
-    icon: Leaf,
+    icon: icon.honest,
     title: "Honest Advice",
     text: "If a tree can safely stay, we'll tell you. You won't be pushed into unnecessary work.",
   },
   {
-    icon: MapPin,
+    icon: icon.location,
     title: "Locally Owned",
     text: "We're based in Madison and care about doing work our neighbors can feel good about.",
   },
@@ -85,11 +107,13 @@ export function Why({ variant = "home" }: { variant?: "home" | "services" }) {
           <p className="mt-4 text-lg leading-relaxed text-cream-100/75">{intro}</p>
         </header>
         <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {reasons.map(({ icon: Icon, title, text }) => (
+          {reasons.map(({ icon: reasonIcon, title, text }) => (
             <li key={title} className="rounded-[1.75rem] bg-white/[0.06] p-7 ring-1 ring-white/10">
-              <Icon className="size-6 text-sun-400" aria-hidden="true" />
-              <h3 className="mt-5 font-sans text-lg font-bold tracking-normal text-white">{title}</h3>
-              <p className="mt-2 leading-relaxed text-cream-100/75">{text}</p>
+              <div className="flex items-center gap-3">
+                <GoldIcon src={reasonIcon} />
+                <h3 className="font-sans text-lg font-bold tracking-normal text-white">{title}</h3>
+              </div>
+              <p className="mt-3 leading-relaxed text-cream-100/75">{text}</p>
             </li>
           ))}
         </ul>

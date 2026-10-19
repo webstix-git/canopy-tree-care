@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Phone } from "lucide-react";
 import { Breadcrumb, PageHero } from "@/components/PageHero";
 import { site } from "@/lib/site";
 
@@ -22,11 +23,12 @@ export default function ThankYouPage() {
       <section className="bg-white py-16 lg:py-24">
         <div className="container-page max-w-3xl">
           <p className="text-sm font-bold tracking-[0.16em] text-sun-600 uppercase">Request received</p>
-          <h2 className="mt-3 text-4xl leading-tight sm:text-5xl">Thanks for contacting us!</h2>
+          <h2 className="mt-3 text-4xl leading-tight sm:text-5xl">Thanks for Contacting Us!</h2>
           <p className="mt-4 text-ink-muted">We will get in touch with you shortly.</p>
           <p className="mt-6 text-ink-muted">
             Need us sooner? Call{" "}
-            <a href={site.phoneHref} className="font-semibold text-forest-700 underline">
+            <a href={site.phoneHref} className="inline-flex items-center gap-1 font-semibold text-forest-700 underline">
+              <Phone className="size-4" aria-hidden="true" />
               {site.phone}
             </a>
             .
@@ -35,7 +37,7 @@ export default function ThankYouPage() {
             href="/"
             className="mt-8 inline-flex rounded-full border border-forest-800 px-7 py-3.5 font-semibold text-forest-900 hover:bg-cream-100"
           >
-            Back to home
+            Back to Home
           </Link>
         </div>
       </section>

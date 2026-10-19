@@ -29,4 +29,5 @@ export const services = [
   { slug: "stump-grinding", name: "Stump Grinding" },
   { slug: "disease-management", name: "Disease Management" },
   { slug: "lot-clearing", name: "Lot Clearing" },
+  { slug: "storm-damage", name: "Storm Damage" },
 ];

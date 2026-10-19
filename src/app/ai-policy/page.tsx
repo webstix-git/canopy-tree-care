@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Phone } from "lucide-react";
 import { BackHome, Breadcrumb, PageHero } from "@/components/PageHero";
 import { site } from "@/lib/site";
 
@@ -20,7 +21,7 @@ export default function AiPolicyPage() {
         <div className="container-page">
         <div className="max-w-3xl space-y-8 text-ink-muted">
           <section>
-            <h2 className="text-2xl text-forest-900">On the website</h2>
+            <h2 className="text-2xl text-forest-900">On the Website</h2>
             <p className="mt-3">
               Some pages on this site were drafted with writing software, including AI tools.{" "}
               {site.arborist} checks the facts about our services, our service area, and how to
@@ -29,7 +30,7 @@ export default function AiPolicyPage() {
             </p>
           </section>
           <section>
-            <h2 className="text-2xl text-forest-900">On a job</h2>
+            <h2 className="text-2xl text-forest-900">On a Job</h2>
             <p className="mt-3">
               We do not use an automated system to price a job, accept a job, or diagnose a tree
               from a photo on this website. A person looks at the tree, tells you what they see,
@@ -37,7 +38,7 @@ export default function AiPolicyPage() {
             </p>
           </section>
           <section>
-            <h2 className="text-2xl text-forest-900">What you send us</h2>
+            <h2 className="text-2xl text-forest-900">What You Send Us</h2>
             <p className="mt-3">
               Do not put sensitive personal information in the estimate form. A name, a phone
               number, an email, and a note about the tree are enough. We do not use customer
@@ -52,7 +53,8 @@ export default function AiPolicyPage() {
                 {site.email}
               </a>{" "}
               or call{" "}
-              <a href={site.phoneHref} className="font-semibold text-forest-700 underline">
+              <a href={site.phoneHref} className="inline-flex items-center gap-1 font-semibold text-forest-700 underline">
+                <Phone className="size-4" aria-hidden="true" />
                 {site.phone}
               </a>
               . A plain list of our services for people and assistants is on the{" "}

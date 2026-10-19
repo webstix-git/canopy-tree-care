@@ -1,23 +1,10 @@
 import Link from "next/link";
 import { Quote } from "lucide-react";
 
-const services = [
-  "Tree Removal",
-  "Tree Pruning",
-  "Stump Grinding",
-  "Disease Management",
-  "Lot Clearing",
-  "Tree Removal",
-  "Tree Pruning",
-  "Stump Grinding",
-  "Disease Management",
-];
-
-const reviews = services.map((service) => ({
+const reviews = Array.from({ length: 9 }, () => ({
   quote: "Customer testimonial will appear here.",
   name: "Customer Name",
   location: "City, WI",
-  service,
 }));
 
 export function Testimonials({
@@ -44,20 +31,15 @@ export function Testimonials({
 
         <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {reviews.map((review, index) => (
-            <li key={`${review.service}-${index}`}>
+            <li key={index}>
               <figure className="flex h-full flex-col rounded-[1.75rem] bg-white/10 p-7 ring-1 ring-white/10">
                 <Quote className="size-8 text-sun-400" aria-hidden="true" />
                 <blockquote className="mt-4 text-[18px] leading-relaxed text-white">
                   “{review.quote}”
                 </blockquote>
-                <figcaption className="mt-6 flex items-end justify-between gap-4">
-                  <div>
-                    <p className="font-semibold text-white">{review.name}</p>
-                    <p className="text-[18px] text-cream-100/70">Homeowner, {review.location}</p>
-                  </div>
-                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-leaf-200">
-                    {review.service}
-                  </span>
+                <figcaption className="mt-6">
+                  <p className="font-semibold text-white">{review.name}</p>
+                  <p className="text-[18px] text-cream-100/70">Homeowner, {review.location}</p>
                 </figcaption>
               </figure>
             </li>

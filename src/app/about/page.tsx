@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Check, Eye, HardHat, Home, Leaf } from "lucide-react";
+import { Check } from "lucide-react";
 import { ArboristBadge } from "@/components/ArboristBadge";
 import { CtaBanner } from "@/components/CtaBanner";
 import { ServiceArea } from "@/components/home/ServiceArea";
@@ -10,36 +10,36 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: `Canopy Tree Care is a small Madison crew led by ISA Certified Arborist ${site.arborist}. We've looked after trees here since 2000.`,
+  description: `A small Madison tree care crew led by ISA Certified Arborist ${site.arborist}. We've been caring for trees since 2000.`,
 };
 
 const ticks = [
   "Science-backed tree care",
-  "Industry safety standards",
-  "Honest, clear advice",
+  "Safe, careful work",
+  "Straightforward advice",
   "Ongoing training",
 ];
 
 const values = [
   {
-    icon: HardHat,
+    icon: "/icons/icons/safety.svg",
     title: "Safety",
-    text: "Tree work can be dangerous, so we don't cut corners. We follow industry safety standards to protect our crew, you, and your home.",
+    text: "Tree work can be dangerous, so we don't cut corners. We follow industry safety practices to protect our crew, you, and your home.",
   },
   {
-    icon: Leaf,
+    icon: "/icons/icons/environment.svg",
     title: "Environmental Stewardship",
-    text: "We'd always rather save a tree than remove it. If a healthy tree can stay, we'll find a way to keep it.",
+    text: "We'd rather save a healthy tree than remove it. If a tree can stay, we'll look for a practical way to keep it.",
   },
   {
-    icon: Eye,
+    icon: "/icons/icons/transparency.svg",
     title: "Transparency",
-    text: "You'll get honest advice and a clear price before any work begins. The bill won't hold any surprises.",
+    text: "You'll get honest advice and a clear price before the work begins. No surprises halfway through the job.",
   },
   {
-    icon: Home,
+    icon: "/icons/icons/property.svg",
     title: "Respect for Property",
-    text: "We work carefully around your house, garden, and lawn, and we leave everything clean when we go.",
+    text: "We work carefully around your house, yard, and landscaping, and we clean up after ourselves when the job is done.",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function AboutPage() {
     <>
       <PageHero
         title="About Us"
-        description="A small Madison crew led by ISA Certified Arborist Josh Knapp. Looking after trees here since 2000."
+        description="A small Madison tree care crew led by ISA Certified Arborist Josh Knapp. We've been caring for trees since 2000."
       />
       <Breadcrumb className="bg-cream-50" items={[{ label: "Home", href: "/" }, { label: "About Us" }]} />
 
@@ -80,14 +80,14 @@ export default function AboutPage() {
             <div className="mt-6 space-y-4 text-ink-muted">
               <p>We got into this work because we love trees, and we were tired of seeing them treated badly.</p>
               <p>
-                Too many trees around town were being topped, hacked back, or taken down with risky
-                shortcuts. We wanted to do it properly, with sound science and safe methods.
-                We&apos;ve been doing that for homeowners and businesses around Madison since 2000.
+                Too many trees were being topped, hacked back, or taken down when a better solution
+                was possible. We wanted to do things differently, with sound tree care practices,
+                careful work, and a little more respect for the trees we&apos;re working around.
               </p>
               <p>
-                We&apos;re locally owned and run, and we care about safety, good service, and getting
-                the details right. One small tree or a whole lot, we turn up when we say we will,
-                finish on schedule, and clean up like it&apos;s our own yard.
+                We&apos;re a locally owned crew, and we care about doing the job right. That means
+                showing up when we say we will, keeping your property clean, and taking the time to
+                explain what we see and what we recommend.
               </p>
             </div>
             <Link href="/gallery" className={outlineButton}>
@@ -104,14 +104,14 @@ export default function AboutPage() {
             <h2 className="mt-4 text-4xl leading-tight sm:text-5xl">Led by an ISA Certified Arborist</h2>
             <div className="mt-6 space-y-4 text-ink-muted">
               <p>
-                Our work is led by {site.arborist}, an ISA Certified Arborist. The certification
-                comes from the International Society of Arboriculture. To earn it, Josh passed an
-                exam covering tree biology, pruning, diagnosis, and safe work practices, and he
-                keeps up with ongoing training to hold onto it.
+                Our work is led by {site.arborist}, an ISA Certified Arborist. His certification
+                comes from the International Society of Arboriculture and reflects a strong
+                foundation in tree biology, pruning, diagnosis, and safe work practices.
               </p>
               <p>
-                What that means for you is advice from someone who understands how trees grow and
-                why they fail. Josh will tell you what he sees, what he&apos;d do about it, and why.
+                What that means for you is simple: you&apos;re getting advice from someone who
+                understands how trees grow, what they need, and when a tree can be saved instead of
+                removed.
               </p>
             </div>
             <ul className="mt-8 space-y-3">
@@ -145,22 +145,33 @@ export default function AboutPage() {
             <p className="eyebrow justify-center text-leaf-200">Our Values</p>
             <h2 className="mt-4 text-4xl leading-tight text-white sm:text-5xl">What We Care About</h2>
             <p className="mt-4 text-lg leading-relaxed text-cream-100/75">
-              Four things we try to get right on every job, whatever the size.
+              A few things we try to get right on every job, no matter the size.
             </p>
           </header>
           <ul className="mt-14 grid gap-5 sm:grid-cols-2">
-            {values.map(({ icon: Icon, title, text }) => (
+            {values.map(({ icon, title, text }) => (
               <li key={title} className="rounded-[1.75rem] bg-white/[0.06] p-7 ring-1 ring-white/10">
-                <Icon className="size-6 text-sun-400" aria-hidden="true" />
-                <h3 className="mt-5 font-sans text-lg font-bold tracking-normal text-white">{title}</h3>
-                <p className="mt-2 leading-relaxed text-cream-100/75">{text}</p>
+                <div className="flex items-center gap-3">
+                  <span
+                    aria-hidden="true"
+                    className="inline-block size-6 shrink-0 bg-sun-400"
+                    style={{
+                      WebkitMask: `url("${icon}") center / contain no-repeat`,
+                      mask: `url("${icon}") center / contain no-repeat`,
+                      WebkitMaskMode: "alpha",
+                      maskMode: "alpha",
+                    }}
+                  />
+                  <h3 className="font-sans text-lg font-bold tracking-normal text-white">{title}</h3>
+                </div>
+                <p className="mt-3 leading-relaxed text-cream-100/75">{text}</p>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      <ServiceArea />
+      <ServiceArea variant="about" />
       <CtaBanner />
     </>
   );

@@ -2,11 +2,12 @@
 
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { Send } from "lucide-react";
 import { services } from "@/lib/site";
 
 const inputClass =
   "mt-1.5 w-full rounded-xl border border-forest-900/15 bg-cream-50 px-4 py-3 text-ink placeholder:text-ink-muted/60 transition-colors focus:border-forest-600 focus:bg-white focus:ring-4 focus:ring-leaf-200/60 focus:outline-none";
+
+const selectClass = `${inputClass} appearance-none bg-[length:0.7rem] bg-[position:right_1.35rem_center] bg-no-repeat pr-12 bg-[url('data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2012%208%27%20fill=%27none%27%3E%3Cpath%20d=%27M1%201.5%206%206.5%2011%201.5%27%20stroke=%27%231b4029%27%20stroke-width=%271.6%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27/%3E%3C/svg%3E')]`;
 
 export function EstimateForm() {
   const router = useRouter();
@@ -19,8 +20,10 @@ export function EstimateForm() {
     const phone = String(data.get("phone") ?? "").trim();
     const service = String(data.get("service") ?? "").trim();
 
-    if (!name || !phone || !service) {
-      setError("Please fill in the required fields before you send this.");
+    const email = String(data.get("email") ?? "").trim();
+
+    if (!name || !phone || !email || !service) {
+      setError("Please Fill In the Required Fields Before You Send This.");
       return;
     }
 
@@ -36,18 +39,18 @@ export function EstimateForm() {
       aria-labelledby="estimate-form-title"
     >
       <h2 id="estimate-form-title" className="text-2xl">
-        Request your free estimate
+        Request Your Free Estimate
       </h2>
-      <p className="mt-1 text-sm text-ink-muted">Takes less than a minute. No obligation.</p>
-      <p className="mt-2 text-sm text-ink-muted">Fields marked with an asterisk (*) are required.</p>
+      <p className="mt-1 text-sm text-ink-muted">Takes Less Than a Minute. No Obligation.</p>
+      <p className="mt-2 text-sm text-ink-muted">Fields Marked With an Asterisk (*) Are Required.</p>
 
-      <div className="mt-7 grid gap-5 sm:grid-cols-2">
+      <div className="mt-7 grid gap-5">
         <label className="block text-sm font-semibold text-forest-900">
-          Full name <span aria-hidden="true">*</span>
+          Full Name <span aria-hidden="true" className="text-red-600">*</span>
           <input name="name" autoComplete="name" aria-required="true" className={inputClass} placeholder="Jane Smith" />
         </label>
         <label className="block text-sm font-semibold text-forest-900">
-          Phone <span aria-hidden="true">*</span>
+          Phone <span aria-hidden="true" className="text-red-600">*</span>
           <input
             name="phone"
             type="tel"
@@ -58,28 +61,28 @@ export function EstimateForm() {
           />
         </label>
         <label className="block text-sm font-semibold text-forest-900">
-          Email
-          <input name="email" type="email" autoComplete="email" className={inputClass} placeholder="you@example.com" />
+          Email <span aria-hidden="true" className="text-red-600">*</span>
+          <input name="email" type="email" autoComplete="email" aria-required="true" className={inputClass} placeholder="you@example.com" />
         </label>
         <label className="block text-sm font-semibold text-forest-900">
-          Service needed <span aria-hidden="true">*</span>
-          <select name="service" defaultValue="" aria-required="true" className={inputClass}>
-            <option value="">Select a service</option>
+          Service Needed <span aria-hidden="true" className="text-red-600">*</span>
+          <select name="service" defaultValue="" aria-required="true" className={selectClass}>
+            <option value="">Select a Service</option>
             {services.map((s) => (
               <option key={s.slug} value={s.slug}>
                 {s.name}
               </option>
             ))}
-            <option value="not-sure">Not sure, I need advice</option>
+            <option value="not-sure">Not Sure, I Need Advice</option>
           </select>
         </label>
-        <label className="block text-sm font-semibold text-forest-900 sm:col-span-2">
-          Tell us about your trees
+        <label className="block text-sm font-semibold text-forest-900">
+          Tell Us About Your Trees
           <textarea
             name="message"
             rows={3}
             className={`${inputClass} resize-none`}
-            placeholder="A large oak leaning toward the house, about 60 ft tall"
+            placeholder="A Large Oak Leaning Toward the House, About 60 Ft Tall"
           />
         </label>
       </div>
@@ -92,13 +95,9 @@ export function EstimateForm() {
 
       <button
         type="submit"
-        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-forest-800 px-7 py-4 font-semibold text-white transition-all hover:bg-forest-700"
+        className="mt-7 inline-flex w-full items-center justify-center rounded-full bg-forest-800 px-7 py-4 text-[18px] font-semibold text-white transition-all hover:bg-forest-700"
       >
-        Send my request
-        <Send
-          className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-          aria-hidden="true"
-        />
+        Send My Request
       </button>
     </form>
   );
