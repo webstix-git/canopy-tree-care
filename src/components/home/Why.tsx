@@ -15,7 +15,6 @@ function GoldIcon({ src }: { src: string }) {
       style={{
         WebkitMask: `url("${src}") center / contain no-repeat`,
         mask: `url("${src}") center / contain no-repeat`,
-        WebkitMaskMode: "alpha",
         maskMode: "alpha",
       }}
     />

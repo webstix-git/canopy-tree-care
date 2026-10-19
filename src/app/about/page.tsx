@@ -158,7 +158,6 @@ export default function AboutPage() {
                     style={{
                       WebkitMask: `url("${icon}") center / contain no-repeat`,
                       mask: `url("${icon}") center / contain no-repeat`,
-                      WebkitMaskMode: "alpha",
                       maskMode: "alpha",
                     }}
                   />
