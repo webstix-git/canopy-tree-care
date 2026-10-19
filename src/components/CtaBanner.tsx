@@ -14,7 +14,7 @@ export function CtaBanner({
   return (
     <section id={id} className={`relative flex h-[400px] items-center overflow-hidden ${id ? "scroll-mt-28" : ""}`}>
       <Image src={canopyImg} alt="" fill placeholder="blur" sizes="100vw" className="object-cover" />
-      <div aria-hidden="true" className="absolute inset-0 bg-[rgb(20_48_31/80%)] shadow-[inset_0_0_0_4px_rgb(255_255_255/0.28)]" />
+      <div aria-hidden="true" className="absolute inset-0 bg-[rgb(20_48_31/80%)]" />
       <div className="container-page relative mx-auto max-w-3xl text-center text-cream-50">
         <h2 className="text-4xl leading-tight text-white sm:text-5xl">Got a Tree You&apos;re Worried About?</h2>
         <p className="mx-auto mt-5 max-w-[600px] text-cream-100">{description}</p>

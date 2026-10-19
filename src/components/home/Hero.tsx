@@ -55,7 +55,7 @@ export function Hero() {
           </ul>
         </div>
 
-        <div className="relative pb-10">
+        <div className="relative mx-auto w-[90%] pb-10">
           <div className="relative aspect-[1584/1436] overflow-hidden rounded-[1.35rem] shadow-[0_24px_50px_-28px_rgb(20_48_31/0.35)]">
             <img
               src="/images/hero-lakeside.jpg"
