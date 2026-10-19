@@ -26,14 +26,8 @@ export function Hero() {
             <br />
             <span className="font-bold text-forest-600">Rooted in Madison.</span>
           </h1>
-          <p className="mt-6 max-w-lg leading-relaxed text-ink-muted">
-            Trees don&apos;t always make it easy to know what they need. Whether you have a tree
-            that&apos;s becoming a safety concern, needs a little attention, or you&apos;re simply
-            not sure what&apos;s going on, we&apos;ll take a look and give you an honest
-            recommendation.
-          </p>
 
-          <div className="mt-8">
+          <div className="mt-6">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-sun-500 px-7 py-3.5 font-bold text-forest-950 shadow-[0_12px_24px_-14px_rgb(207_138_27/0.9)] transition-colors hover:bg-sun-600"
@@ -43,7 +37,7 @@ export function Hero() {
             </Link>
           </div>
 
-          <ul className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-3">
+          <ul className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-3">
             {highlights.map((item) => (
               <li key={item} className="inline-flex items-center gap-2 text-sm font-medium whitespace-nowrap text-forest-800">
                 <span className="grid size-5 shrink-0 place-items-center rounded-full bg-[#689838] text-white">
@@ -56,7 +50,7 @@ export function Hero() {
         </div>
 
         <div className="relative mx-auto w-[90%] pb-10">
-          <div className="relative aspect-[1584/1436] overflow-hidden rounded-[1.35rem] shadow-[0_24px_50px_-28px_rgb(20_48_31/0.35)]">
+          <div className="relative h-0 overflow-hidden rounded-[1.35rem] pb-[calc(90.6566%-3px)] shadow-[0_24px_50px_-28px_rgb(20_48_31/0.35)]">
             <img
               src="/images/hero-lakeside.jpg"
               alt="Crew member clearing a fallen tree beside a lakeside home"
@@ -72,7 +66,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="absolute bottom-0 left-0 flex w-[min(100%,18.5rem)] items-center gap-3 rounded-2xl bg-white px-3.5 py-2.5 shadow-[0_16px_40px_-20px_rgb(20_48_31/0.45)]">
+          <div className="absolute bottom-0 left-0 flex w-[min(100%,calc(18.5rem-3px))] items-center gap-3 rounded-2xl bg-white px-3.5 py-[calc(0.625rem-1.5px)] shadow-[0_16px_40px_-20px_rgb(20_48_31/0.45)]">
             <ArboristBadge className="h-16 w-auto shrink-0" />
             <div>
               <p className="text-[11px] font-bold tracking-[0.16em] text-forest-600 uppercase">Led by</p>

@@ -30,7 +30,7 @@ export function Welcome() {
   return (
     <section id="welcome" className="scroll-mt-28 bg-cream-50" aria-labelledby="welcome-title">
       <div className="container-page grid items-start gap-16 py-24 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-16 lg:py-32">
-        <div className="relative pr-10 pb-16 sm:pr-20 sm:pb-20 lg:sticky lg:top-[calc(var(--site-header-height)+2rem)] lg:mt-12 lg:self-start">
+        <div className="relative pr-10 pb-16 sm:pr-20 sm:pb-20 lg:sticky lg:top-[calc(var(--site-header-height)+2rem)] lg:mt-3 lg:self-start">
           <div className="relative aspect-video overflow-hidden rounded-[2rem] rounded-bl-[6rem] shadow-[0_40px_80px_-40px_rgb(20_48_31/0.5)]">
             <Image
               src="/images/crew-axes.jpg"
