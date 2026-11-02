@@ -4,8 +4,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ArboristBadge } from "@/components/ArboristBadge";
 import { CtaBanner } from "@/components/CtaBanner";
-import { ServiceBlock } from "@/components/ServiceBlock";
-import { ServiceTabs } from "@/components/ServiceTabs";
 import { ServiceArea } from "@/components/home/ServiceArea";
 import { Why } from "@/components/home/Why";
 import { Breadcrumb, PageHero } from "@/components/PageHero";
@@ -84,10 +82,49 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <ServiceTabs services={servicePages.map(({ slug, name }) => ({ slug, name }))} />
-      {servicePages.map((service, index) => (
-        <ServiceBlock key={service.slug} service={service} flip={index % 2 === 1} />
-      ))}
+      <section className="bg-white py-20 lg:py-28">
+        <div className="container-page">
+          <header className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow justify-center">What We Do</p>
+            <h2 className="mt-4 text-4xl leading-tight sm:text-5xl">Tree Care for Madison Homes</h2>
+            <p className="mt-4 text-ink-muted">
+              Six kinds of work, each with its own page. Pick the one that matches what you&apos;re
+              seeing in the yard.
+            </p>
+          </header>
+          <ul className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {servicePages.map((service) => (
+              <li key={service.slug}>
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] bg-cream-50 text-forest-900 shadow-[0_18px_40px_-28px_rgb(20_48_31/0.45)] ring-1 ring-forest-900/10"
+                >
+                  <div className="relative aspect-[16/10]">
+                    <Image
+                      src={service.image}
+                      alt={service.alt}
+                      fill
+                      placeholder="blur"
+                      sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <h3 className="font-display text-2xl font-semibold tracking-tight text-forest-900">
+                      {service.name}
+                    </h3>
+                    <p className="mt-2 text-[18px] leading-relaxed text-ink-muted">{service.summary}</p>
+                    <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-bold text-forest-700">
+                      Learn About {service.name}
+                      <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                    </span>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
       <Why variant="services" />
       <ServiceArea variant="services" />
       <CtaBanner />

@@ -12,6 +12,8 @@ export function ServiceBlock({
   flip?: boolean;
   showIntro?: boolean;
 }) {
+  const intro = service.sections[0];
+
   return (
     <section
       id={service.slug}
@@ -32,30 +34,27 @@ export function ServiceBlock({
           {showIntro ? <h2 className="text-4xl leading-tight">{service.name}</h2> : null}
           <div className={`space-y-4 text-ink-muted ${showIntro ? "mt-5" : ""}`}>
             {showIntro ? <p>{service.summary}</p> : null}
-            {service.paragraphs.map((paragraph) => (
+            {intro?.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
-          {service.includes.length > 0 ? (
-            <>
-              <p className="mt-6 font-semibold text-forest-900">{service.includesLead}</p>
-              <ul className="mt-4 space-y-3">
-                {service.includes.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-ink-muted">
-                    <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-[#689838] text-white">
-                      <Check className="size-3" strokeWidth={3} aria-hidden="true" />
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </>
+          {intro?.items && intro.items.length > 0 ? (
+            <ul className="mt-4 space-y-3">
+              {intro.items.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-ink-muted">
+                  <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-[#689838] text-white">
+                    <Check className="size-3" strokeWidth={3} aria-hidden="true" />
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
           ) : null}
           <Link
-            href="/contact"
+            href={`/services/${service.slug}`}
             className="group mt-8 inline-flex items-center gap-2 rounded-full border border-forest-800 px-7 py-3.5 font-semibold text-forest-900 transition-colors hover:bg-white"
           >
-            {service.cta}
+            Learn About {service.name}
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
           </Link>
         </div>

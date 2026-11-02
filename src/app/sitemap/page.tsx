@@ -26,7 +26,7 @@ const groups = [
     title: "Services",
     links: servicePages.map((service) => ({
       label: service.name,
-      href: `/services#${service.slug}`,
+      href: `/services/${service.slug}`,
     })),
   },
   {

@@ -5,6 +5,7 @@ import { Hero } from "@/components/home/Hero";
 import { Process } from "@/components/home/Process";
 import { ServiceArea } from "@/components/home/ServiceArea";
 import { Services } from "@/components/home/Services";
+import { StormStrip } from "@/components/home/StormStrip";
 import { Testimonials } from "@/components/home/Testimonials";
 import { Welcome } from "@/components/home/Welcome";
 import { Why } from "@/components/home/Why";
@@ -43,6 +44,7 @@ export default function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Hero />
+      <StormStrip />
       <Welcome />
       <Services />
       <Why />

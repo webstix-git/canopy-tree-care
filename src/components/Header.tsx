@@ -161,12 +161,17 @@ export function Header() {
                     {services.map((service) => (
                       <li key={service.slug}>
                         <Link
-                          href={`/services#${service.slug}`}
+                          href={`/services/${service.slug}`}
+                          aria-current={pathname === `/services/${service.slug}` ? "page" : undefined}
                           onClick={() => {
                             servicesLock.current = true;
                             setServicesMenu(false);
                           }}
-                          className="block rounded-xl px-4 py-2.5 text-base font-semibold text-forest-900 transition-colors hover:bg-cream-100 hover:text-forest-700"
+                          className={`block rounded-xl px-4 py-2.5 text-base font-semibold transition-colors hover:bg-cream-100 hover:text-forest-700 ${
+                            pathname === `/services/${service.slug}`
+                              ? "text-forest-700 underline decoration-2 underline-offset-4 decoration-forest-700"
+                              : "text-forest-900"
+                          }`}
                         >
                           {service.name}
                         </Link>
@@ -253,7 +258,7 @@ export function Header() {
                       {services.map((service) => (
                         <li key={service.slug}>
                           <Link
-                            href={`/services#${service.slug}`}
+                            href={`/services/${service.slug}`}
                             onClick={() => setOpen(false)}
                             className="block rounded-xl px-3 py-2.5 font-semibold text-forest-800 hover:bg-cream-100"
                           >

@@ -63,7 +63,7 @@ export function Services() {
         {cards.map((card) => (
           <li key={card.slug} className={card.featured ? "md:col-span-2 lg:col-span-2" : undefined}>
             <Link
-              href={`/services#${card.slug}`}
+              href={`/services/${card.slug}`}
               className={`group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] bg-white text-forest-900 shadow-[0_18px_40px_-28px_rgb(20_48_31/0.45)] ring-1 ring-forest-900/10 ${
                 card.featured ? "lg:flex-row" : ""
               }`}

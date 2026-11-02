@@ -55,7 +55,7 @@ export default function AiReadinessPage() {
               {servicePages.map((service) => (
                 <li key={service.slug}>
                   <Link
-                    href={`/services#${service.slug}`}
+                    href={`/services/${service.slug}`}
                     className="font-semibold text-forest-800 underline underline-offset-4"
                   >
                     {service.name}
