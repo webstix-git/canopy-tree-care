@@ -32,10 +32,10 @@ export function PageHero({
           className="absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/88%)_0%,rgb(255_255_255/48%)_36%,rgb(255_255_255/8%)_100%)]"
         />
       </div>
-      <div className="container-page relative z-10 flex min-h-[calc(400px-6.5rem)] items-end pb-12 sm:min-h-[calc(400px-8.5rem)]">
-        <div>
+      <div className="container-page relative z-10 flex min-h-[18rem] items-end py-12 sm:min-h-[calc(400px-8.5rem)] sm:py-14">
+        <div className="w-full max-w-3xl">
           {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-          <h1 className={`max-w-3xl text-5xl leading-tight font-bold text-forest-900 sm:text-6xl ${eyebrow ? "mt-4" : ""}`}>
+          <h1 className={`text-4xl leading-tight font-bold text-forest-900 sm:text-5xl lg:text-6xl ${eyebrow ? "mt-4" : ""}`}>
             {title}
           </h1>
           {description ? <p className="mt-4 max-w-xl text-ink-muted">{description}</p> : null}

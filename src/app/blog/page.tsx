@@ -20,7 +20,7 @@ export default function BlogPage() {
         description="Straightforward advice for taking care of the trees around your home, from common pests and diseases to planting and pruning."
       />
       <Breadcrumb className="bg-cream-50" items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
-      <section className="bg-cream-50 py-16 lg:py-24">
+      <section className="section-y-sm bg-cream-50">
         <div className="container-page">
           <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => (

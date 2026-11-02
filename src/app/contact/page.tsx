@@ -45,8 +45,8 @@ export default function ContactPage() {
         description="Tell us what the tree is doing and we'll come take a look."
       />
       <Breadcrumb className="bg-cream-100" items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
-      <section className="bg-cream-100 py-16 lg:py-24">
-        <div className="container-page grid items-start gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+      <section className="section-y-sm bg-cream-100">
+        <div className="container-page grid items-start gap-8 sm:gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
           <EstimateForm />
           <div>
             <h2 className="text-3xl">Talk to Us Directly</h2>

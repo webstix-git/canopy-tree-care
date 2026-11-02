@@ -22,7 +22,7 @@ export default function TestimonialsPage() {
         description="Kind words from Madison and Dane County homeowners will live here."
       />
       <Breadcrumb className="bg-cream-100" items={[{ label: "Home", href: "/" }, { label: "Testimonials" }]} />
-      <section className="bg-cream-100 py-20 lg:py-28">
+      <section className="section-y-sm bg-cream-100">
         <ul className="container-page grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {reviews.map((review, index) => (
             <li key={index}>

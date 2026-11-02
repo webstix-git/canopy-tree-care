@@ -17,7 +17,7 @@ export function ServiceBlock({
   return (
     <section
       id={service.slug}
-      className={`scroll-mt-[calc(var(--site-header-height)+4.5rem)] py-20 lg:py-28 ${flip ? "bg-cream-100" : "bg-white"}`}
+      className={`section-y-sm scroll-mt-[calc(var(--site-header-height)+4.5rem)] ${flip ? "bg-cream-100" : "bg-white"}`}
     >
       <div className="container-page grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div className={`relative aspect-[4/3] overflow-hidden rounded-[1.75rem] ${flip ? "lg:order-2" : ""}`}>

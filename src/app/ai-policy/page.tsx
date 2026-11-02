@@ -17,7 +17,7 @@ export default function AiPolicyPage() {
         description="People do the tree work. Software can help us write. It does not decide what happens to your tree."
       />
       <Breadcrumb className="bg-cream-100" items={[{ label: "Home", href: "/" }, { label: "AI Policy" }]} />
-      <article className="bg-cream-100 py-20 lg:py-28">
+      <article className="section-y-sm bg-cream-100">
         <div className="container-page">
         <div className="max-w-3xl space-y-8 text-ink-muted">
           <section>

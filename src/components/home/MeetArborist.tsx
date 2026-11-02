@@ -32,7 +32,7 @@ const values = [
 export function MeetArborist() {
   return (
     <section className="bg-cream-100">
-      <div className="container-page grid items-center gap-16 py-24 lg:grid-cols-2 lg:gap-20 lg:py-32">
+      <div className="container-page grid items-center gap-10 section-y lg:grid-cols-2 lg:gap-20">
         <div className="relative pb-16 sm:pr-20 lg:pb-20">
           <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] rounded-bl-[6rem] shadow-[0_40px_80px_-40px_rgb(20_48_31/0.5)]">
             <Image

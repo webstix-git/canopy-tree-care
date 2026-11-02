@@ -23,9 +23,9 @@ const quickLinks = [
 export function Footer() {
   return (
     <footer className="bg-cream-50 text-ink">
-      <div className="container-page grid gap-12 pt-16 pb-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+      <div className="container-page grid gap-10 pt-16 pb-10 sm:grid-cols-2 sm:gap-12 sm:pt-20 lg:grid-cols-4 lg:gap-8">
         <div>
-          <Logo className="h-28 w-auto" />
+          <Logo className="h-20 w-auto sm:h-28" />
           <ul className="mt-5 space-y-3 text-[17px] text-ink-muted">
             <li>
               <a href={site.mapHref} className="inline-flex items-start gap-2 hover:text-forest-800">

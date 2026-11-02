@@ -21,11 +21,11 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="process" className="scroll-mt-28 bg-cream-50 py-24 lg:py-32" aria-labelledby="process-title">
+    <section id="process" className="section-y scroll-mt-28 bg-cream-50" aria-labelledby="process-title">
       <div className="container-page">
       <header className="mx-auto max-w-2xl text-center">
         <p className="eyebrow justify-center">A simple process</p>
-        <h2 id="process-title" className="mt-4 text-4xl leading-tight sm:text-5xl">
+        <h2 id="process-title" className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">
           What Happens When You Call
         </h2>
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">
@@ -34,7 +34,7 @@ export function Process() {
         </p>
       </header>
 
-      <div className="relative mt-16">
+      <div className="relative mt-10 sm:mt-16">
         <div
           aria-hidden="true"
           className="absolute top-7 right-[12%] left-[12%] hidden border-t-2 border-dashed border-leaf-200 lg:block"

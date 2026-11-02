@@ -115,7 +115,7 @@ export function PhotoGallery() {
                   setService(group.slug);
                   setActive(null);
                 }}
-                className={`flex items-center justify-center rounded-full px-3 py-2 text-center text-sm font-bold transition-colors ${
+                className={`flex min-h-10 items-center justify-center rounded-full px-2 py-2 text-center text-xs font-bold transition-colors sm:px-3 sm:text-sm ${
                   selected ? "bg-forest-800 text-white" : "text-forest-800 hover:bg-cream-100"
                 }`}
               >
@@ -126,8 +126,8 @@ export function PhotoGallery() {
         </div>
       </div>
 
-      <section className="bg-white py-16 lg:py-24">
-        <ul className="container-page grid grid-cols-2 gap-4 lg:grid-cols-3">
+      <section className="section-y-sm bg-white">
+        <ul className="container-page grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
           {photos.map((photo, index) => (
             <li key={photo.alt}>
               <button
@@ -160,7 +160,7 @@ export function PhotoGallery() {
         >
           <button
             type="button"
-            className="absolute top-1/2 left-4 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white"
+            className="absolute top-1/2 left-2 grid size-9 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white sm:left-4 sm:size-11"
             aria-label="Previous image"
             onClick={(event) => {
               event.stopPropagation();
@@ -190,7 +190,7 @@ export function PhotoGallery() {
           </div>
           <button
             type="button"
-            className="absolute top-1/2 right-4 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white"
+            className="absolute top-1/2 right-2 grid size-9 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white sm:right-4 sm:size-11"
             aria-label="Next image"
             onClick={(event) => {
               event.stopPropagation();

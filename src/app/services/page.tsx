@@ -27,9 +27,9 @@ export default function ServicesPage() {
       <Breadcrumb className="bg-cream-50" items={[{ label: "Home", href: "/" }, { label: "Services" }]} />
 
       <section className="bg-cream-50">
-        <div className="container-page grid items-center gap-16 py-24 lg:grid-cols-2 lg:gap-20 lg:py-32">
-          <div className="relative pb-16 sm:pr-20 lg:pb-20">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] rounded-bl-[6rem] shadow-[0_40px_80px_-40px_rgb(20_48_31/0.5)]">
+        <div className="container-page grid items-center gap-10 section-y lg:grid-cols-2 lg:gap-20">
+          <div className="relative pb-14 sm:pr-20 lg:pb-20">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] rounded-bl-[3.5rem] shadow-[0_40px_80px_-40px_rgb(20_48_31/0.5)] sm:rounded-[2rem] sm:rounded-bl-[6rem]">
               <Image
                 src={workImg}
                 alt="Arborist in a helmet and harness working among branches"
@@ -49,11 +49,11 @@ export default function ServicesPage() {
                 className="object-cover"
               />
             </div>
-            <ArboristBadge className="absolute bottom-6 left-6 h-28 w-auto drop-shadow-xl sm:h-32" />
+            <ArboristBadge className="absolute bottom-4 left-4 h-20 w-auto drop-shadow-xl sm:bottom-6 sm:left-6 sm:h-32" />
           </div>
 
           <div>
-            <h2 className="text-4xl leading-tight sm:text-5xl">
+            <h2 className="text-3xl leading-tight sm:text-4xl lg:text-5xl">
               We&apos;d Rather Save a Tree Than Cut It Down
             </h2>
             <div className="mt-6 space-y-4 text-ink-muted">
@@ -82,11 +82,11 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 lg:py-28">
+      <section className="section-y-sm bg-white">
         <div className="container-page">
           <header className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center">What We Do</p>
-            <h2 className="mt-4 text-4xl leading-tight sm:text-5xl">Tree Care for Madison Homes</h2>
+            <h2 className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">Tree Care for Madison Homes</h2>
             <p className="mt-4 text-ink-muted">
               Six kinds of work, each with its own page. Pick the one that matches what you&apos;re
               seeing in the yard.

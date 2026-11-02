@@ -59,11 +59,11 @@ export function Gallery({
   }, [active]);
 
   return (
-    <section id="gallery" className="scroll-mt-28 bg-forest-900 py-24 text-cream-100 lg:py-32" aria-labelledby="gallery-title">
+    <section id="gallery" className="section-y scroll-mt-28 bg-forest-900 text-cream-100" aria-labelledby="gallery-title">
       <div className="container-page">
         <header className="mx-auto max-w-2xl text-center">
           <p className="eyebrow justify-center text-leaf-200">Our work</p>
-          <Heading id="gallery-title" className="mt-4 text-4xl leading-tight text-white sm:text-5xl">
+          <Heading id="gallery-title" className="mt-4 text-3xl leading-tight text-white sm:text-4xl lg:text-5xl">
             Some of Our Work
           </Heading>
           <p className="mt-4 text-lg leading-relaxed text-cream-100/75">
@@ -72,7 +72,7 @@ export function Gallery({
           </p>
         </header>
 
-        <ul className="mt-14 grid grid-cols-2 gap-4 lg:grid-cols-3">
+        <ul className="mt-10 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-4 lg:grid-cols-3">
           {photos.map((photo, index) => (
             <li key={photo.alt}>
               <button
@@ -115,7 +115,7 @@ export function Gallery({
         >
           <button
             type="button"
-            className="absolute top-1/2 left-4 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white"
+            className="absolute top-1/2 left-2 grid size-9 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white sm:left-4 sm:size-11"
             aria-label="Previous image"
             onClick={(event) => {
               event.stopPropagation();
@@ -151,7 +151,7 @@ export function Gallery({
           </div>
           <button
             type="button"
-            className="absolute top-1/2 right-4 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white"
+            className="absolute top-1/2 right-2 grid size-9 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white sm:right-4 sm:size-11"
             aria-label="Next image"
             onClick={(event) => {
               event.stopPropagation();

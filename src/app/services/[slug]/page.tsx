@@ -42,7 +42,7 @@ function SplitSection({
 }) {
   return (
     <section className={cream ? "bg-cream-50" : "bg-white"}>
-      <div className="container-page grid items-center gap-12 py-20 lg:grid-cols-2 lg:gap-16 lg:py-28">
+      <div className="container-page grid items-center gap-8 section-y-sm sm:gap-12 lg:grid-cols-2 lg:gap-16">
         <div className={`relative aspect-[4/3] overflow-hidden rounded-[1.75rem] ${flip ? "lg:order-2" : ""}`}>
           <Image
             src={photo.image}
@@ -54,7 +54,7 @@ function SplitSection({
           />
         </div>
         <div className={flip ? "lg:order-1" : undefined}>
-          <h2 className="text-4xl leading-tight sm:text-5xl">{section.title}</h2>
+          <h2 className="text-3xl leading-tight sm:text-4xl lg:text-5xl">{section.title}</h2>
           <div className="mt-6 space-y-4 text-ink-muted">
             {section.paragraphs.map((paragraph) => (
               <p key={paragraph}>
@@ -123,13 +123,13 @@ export default async function ServiceDetailPage({ params }: Props) {
         />
       ))}
 
-      <section className={`${service.sections.length % 2 === 0 ? "bg-cream-50" : "bg-white"} py-20 lg:py-28`}>
+      <section className={`${service.sections.length % 2 === 0 ? "bg-cream-50" : "bg-white"} section-y-sm`}>
         <div className="container-page">
           <header className="mx-auto max-w-2xl text-center">
-            <h2 className="text-4xl leading-tight sm:text-5xl">Our Process</h2>
+            <h2 className="text-3xl leading-tight sm:text-4xl lg:text-5xl">Our Process</h2>
           </header>
           <ol
-            className={`mt-14 grid gap-6 md:grid-cols-2 ${
+            className={`mt-10 grid gap-4 sm:mt-14 sm:gap-6 md:grid-cols-2 ${
               service.process.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4"
             }`}
           >
@@ -158,13 +158,13 @@ export default async function ServiceDetailPage({ params }: Props) {
         cream={service.sections.length % 2 === 1}
       />
 
-      <section className="bg-cream-50 py-20 lg:py-28">
+      <section className="section-y-sm bg-cream-50">
         <div className="container-page">
           <header className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center">More From Canopy</p>
-            <h2 className="mt-4 text-4xl leading-tight sm:text-5xl">Other Work We Do</h2>
+            <h2 className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">Other Work We Do</h2>
           </header>
-          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <ul className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-5 lg:grid-cols-3 xl:grid-cols-5">
             {others.map((item) => (
               <li key={item.slug}>
                 <Link
@@ -179,8 +179,8 @@ export default async function ServiceDetailPage({ params }: Props) {
                     sizes="(min-width: 1280px) 18vw, (min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 bg-[linear-gradient(to_top,rgb(20_48_31/72%)_0%,rgb(20_48_31/48%)_42%,rgb(20_48_31/18%)_72%,rgb(20_48_31/0%)_100%)] px-5 pt-16 pb-5 text-white">
-                    <span className="font-display text-2xl leading-tight">{item.name}</span>
+                  <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 bg-[linear-gradient(to_top,rgb(20_48_31/72%)_0%,rgb(20_48_31/48%)_42%,rgb(20_48_31/18%)_72%,rgb(20_48_31/0%)_100%)] px-3 pt-10 pb-3 text-white sm:px-5 sm:pt-16 sm:pb-5">
+                    <span className="font-display text-lg leading-tight sm:text-2xl">{item.name}</span>
                     <ArrowRight
                       className="size-5 shrink-0 transition-transform group-hover:translate-x-1"
                       aria-hidden="true"

@@ -17,7 +17,7 @@ export default function PrivacyPolicyPage() {
         description="What we do with the information you share when you call or ask for an estimate."
       />
       <Breadcrumb className="bg-cream-100" items={[{ label: "Home", href: "/" }, { label: "Privacy Policy" }]} />
-      <article className="bg-cream-100 py-20 lg:py-28">
+      <article className="section-y-sm bg-cream-100">
         <div className="container-page">
         <div className="max-w-3xl space-y-8 text-ink-muted">
           <section>

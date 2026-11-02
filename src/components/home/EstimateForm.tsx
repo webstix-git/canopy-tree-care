@@ -35,7 +35,7 @@ export function EstimateForm() {
     <form
       noValidate
       onSubmit={handleSubmit}
-      className="rounded-[2rem] bg-white p-7 shadow-2xl sm:p-10"
+      className="rounded-[1.5rem] bg-white p-5 shadow-2xl sm:rounded-[2rem] sm:p-10"
       aria-labelledby="estimate-form-title"
     >
       <h2 id="estimate-form-title" className="text-2xl">
@@ -46,11 +46,11 @@ export function EstimateForm() {
 
       <div className="mt-7 grid gap-5">
         <label className="block text-sm font-semibold text-forest-900">
-          Full Name <span aria-hidden="true" className="text-red-600">*</span>
+          Full Name: <span aria-hidden="true" className="text-red-600">*</span>
           <input name="name" autoComplete="name" aria-required="true" className={inputClass} placeholder="Jane Smith" />
         </label>
         <label className="block text-sm font-semibold text-forest-900">
-          Phone <span aria-hidden="true" className="text-red-600">*</span>
+          Phone: <span aria-hidden="true" className="text-red-600">*</span>
           <input
             name="phone"
             type="tel"
@@ -61,11 +61,11 @@ export function EstimateForm() {
           />
         </label>
         <label className="block text-sm font-semibold text-forest-900">
-          Email <span aria-hidden="true" className="text-red-600">*</span>
+          Email: <span aria-hidden="true" className="text-red-600">*</span>
           <input name="email" type="email" autoComplete="email" aria-required="true" className={inputClass} placeholder="you@example.com" />
         </label>
         <label className="block text-sm font-semibold text-forest-900">
-          Service Needed <span aria-hidden="true" className="text-red-600">*</span>
+          Service Needed: <span aria-hidden="true" className="text-red-600">*</span>
           <select name="service" defaultValue="" aria-required="true" className={selectClass}>
             <option value="">Select a Service</option>
             {services.map((s) => (
@@ -77,7 +77,7 @@ export function EstimateForm() {
           </select>
         </label>
         <label className="block text-sm font-semibold text-forest-900">
-          Tell Us About Your Trees
+          Tell Us About Your Trees:
           <textarea
             name="message"
             rows={3}

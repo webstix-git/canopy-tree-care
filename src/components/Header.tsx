@@ -57,6 +57,7 @@ export function Header() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    if (!open) setServicesOpen(false);
     return () => {
       document.body.style.overflow = "";
     };
@@ -74,9 +75,9 @@ export function Header() {
   return (
     <>
     <div className="relative z-40 bg-forest-900 text-cream-50">
-      <div className="container-page flex flex-col items-center justify-between gap-1 py-2 text-center text-xs sm:flex-row sm:text-left sm:text-sm">
-        <p className="text-xs sm:text-sm">Locally Owned and Operated · Serving Madison, WI &amp; Dane County</p>
-        <a href={site.phoneHref} className="inline-flex items-center gap-1.5 text-xs font-semibold text-sun-400 hover:text-sun-500 sm:text-sm">
+      <div className="container-page flex flex-col items-center justify-between gap-1 py-1.5 text-center text-xs sm:flex-row sm:py-2 sm:text-left sm:text-sm">
+        <p className="max-w-[34ch] text-[11px] leading-snug sm:max-w-none sm:text-sm">Locally Owned and Operated · Serving Madison, WI &amp; Dane County</p>
+        <a href={site.phoneHref} className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-sun-400 hover:text-sun-500 sm:text-sm">
           Storm damage? Call <Phone className="size-3.5" aria-hidden="true" /> {site.phone}
         </a>
       </div>
@@ -88,20 +89,20 @@ export function Header() {
       }`}
     >
       <div
-        className={`container-page flex items-center justify-between gap-4 transition-all duration-300 ${
-          scrolled ? "py-2" : "py-3"
+        className={`container-page flex items-center justify-between gap-3 transition-all duration-300 sm:gap-4 ${
+          scrolled ? "py-2" : "py-2.5 sm:py-3"
         }`}
       >
-        <Logo className={`w-auto transition-all duration-300 ${scrolled ? "h-12" : "h-20 sm:h-28"}`} />
+        <Logo className={`w-auto transition-all duration-300 ${scrolled ? "h-10 sm:h-12" : "h-14 sm:h-16 xl:h-28"}`} />
 
         <nav
-          className={`hidden items-center lg:flex ${scrolled ? "gap-10" : "gap-6"}`}
+          className={`hidden items-center lg:flex ${scrolled ? "gap-5 xl:gap-10" : "gap-4 xl:gap-6"}`}
           aria-label="Primary"
         >
           {navLinks.map((link) => {
             const active = isCurrent(pathname, link.href);
-            const itemClass = `font-semibold text-ink transition-all duration-300 hover:text-forest-600 ${
-              scrolled ? "text-base" : "text-[18px]"
+            const itemClass = `whitespace-nowrap font-semibold text-ink transition-all duration-300 hover:text-forest-600 ${
+              scrolled ? "text-sm xl:text-base" : "text-base xl:text-[18px]"
             } ${active ? "underline decoration-2 underline-offset-8 decoration-forest-700" : ""}`;
 
             return link.href === "/services" ? (
@@ -188,10 +189,10 @@ export function Header() {
           })}
         </nav>
 
-        <div className={`hidden items-center xl:flex ${scrolled ? "gap-2" : "gap-3"}`}>
+        <div className={`hidden items-center lg:flex ${scrolled ? "gap-2" : "gap-3"}`}>
           <a
             href={site.phoneHref}
-            className={`inline-flex items-center gap-2.5 font-bold text-forest-800 transition-all duration-300 ${
+            className={`hidden items-center gap-2.5 font-bold text-forest-800 transition-all duration-300 xl:inline-flex ${
               scrolled ? "text-base" : "text-[18px]"
             }`}
           >
@@ -201,7 +202,7 @@ export function Header() {
           <Link
             href="/contact"
             className={`rounded-full bg-forest-800 font-bold text-white shadow-sm transition-all duration-300 hover:bg-forest-700 ${
-              scrolled ? "px-5 py-2.5 text-base" : "px-7 py-3.5 text-[18px]"
+              scrolled ? "px-4 py-2 text-sm xl:px-5 xl:py-2.5 xl:text-base" : "px-5 py-2.5 text-base xl:px-7 xl:py-3.5 xl:text-[18px]"
             }`}
           >
             Free Estimate
@@ -210,7 +211,7 @@ export function Header() {
 
         <button
           type="button"
-          className={`grid place-items-center rounded-full border border-forest-900/15 text-forest-900 transition-all duration-300 lg:hidden ${
+          className={`grid shrink-0 place-items-center rounded-full border border-forest-900/15 text-forest-900 transition-all duration-300 lg:hidden ${
             scrolled ? "size-10" : "size-11"
           }`}
           aria-expanded={open}
@@ -221,36 +222,66 @@ export function Header() {
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
       </div>
+    </header>
 
-      {open && (
-        <nav
-          id="mobile-nav"
-          className="absolute inset-x-0 top-full z-40 max-h-[calc(100dvh-4rem)] overflow-y-auto bg-cream-50 px-5 py-6 lg:hidden"
-          aria-label="Mobile"
-        >
-          <ul className="space-y-1">
+    <div
+      className={`fixed inset-0 z-[60] h-[100dvh] w-screen lg:hidden ${open ? "" : "pointer-events-none"}`}
+      inert={!open ? true : undefined}
+      aria-hidden={!open}
+    >
+      <button
+        type="button"
+        tabIndex={open ? 0 : -1}
+        className={`absolute inset-0 bg-forest-950/50 transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0"}`}
+        aria-label="Close menu"
+        onClick={() => setOpen(false)}
+      />
+      <nav
+        id="mobile-nav"
+        aria-label="Mobile"
+        className={`absolute top-0 right-0 flex h-[100dvh] w-[min(22rem,calc(100vw-2.5rem))] flex-col overflow-hidden bg-cream-50 pt-[env(safe-area-inset-top)] shadow-[0_24px_60px_-20px_rgb(20_48_31/0.45)] transition-transform duration-300 ease-out ${
+          open ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex shrink-0 items-center justify-between gap-3 border-b border-forest-900/10 px-5 py-3">
+          <Logo className="h-11 w-auto" />
+          <button
+            type="button"
+            className="grid size-10 place-items-center rounded-full border border-forest-900/15 text-forest-900"
+            onClick={() => setOpen(false)}
+          >
+            <span className="sr-only">Close menu</span>
+            <X className="size-5" />
+          </button>
+        </div>
+        <div className="flex min-h-0 flex-1 flex-col px-5 pt-2 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+          <ul
+            className={`flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain pr-1 ${
+              servicesOpen ? "justify-start" : "justify-evenly"
+            }`}
+          >
             {navLinks.map((link) =>
               link.href === "/services" ? (
                 <li key={link.href}>
                   <button
                     type="button"
-                    className="flex w-full items-center justify-between rounded-2xl px-4 py-3.5 text-lg font-semibold text-forest-900 hover:bg-cream-100"
+                    className="flex w-full items-center justify-between px-1 py-1.5 text-lg font-semibold text-forest-900"
                     aria-expanded={servicesOpen}
                     onClick={() => setServicesOpen((value) => !value)}
                   >
                     {link.label}
                     <ChevronDown
-                      className={`size-5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
+                      className={`size-5 shrink-0 text-forest-800 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
                       aria-hidden="true"
                     />
                   </button>
                   {servicesOpen ? (
-                    <ul className="mb-1 ml-4 space-y-1 border-l border-forest-900/10 pl-3">
+                    <ul className="ml-3 border-l border-forest-900/10 pl-3">
                       <li>
                         <Link
                           href="/services"
                           onClick={() => setOpen(false)}
-                          className="block rounded-xl px-3 py-2.5 font-semibold text-forest-800 hover:bg-cream-100"
+                          className="block px-1 py-1.5 text-[0.95rem] font-semibold text-forest-800"
                         >
                           Services Overview
                         </Link>
@@ -260,7 +291,7 @@ export function Header() {
                           <Link
                             href={`/services/${service.slug}`}
                             onClick={() => setOpen(false)}
-                            className="block rounded-xl px-3 py-2.5 font-semibold text-forest-800 hover:bg-cream-100"
+                            className="block px-1 py-1.5 text-[0.95rem] font-semibold text-forest-800"
                           >
                             {service.name}
                           </Link>
@@ -275,7 +306,7 @@ export function Header() {
                     href={link.href}
                     onClick={() => setOpen(false)}
                     aria-current={isCurrent(pathname, link.href) ? "page" : undefined}
-                    className={`block rounded-2xl px-4 py-3.5 text-lg font-semibold hover:bg-cream-100 ${
+                    className={`block px-1 py-1.5 text-lg font-semibold ${
                       isCurrent(pathname, link.href)
                         ? "text-forest-700 underline decoration-2 underline-offset-4 decoration-forest-700"
                         : "text-forest-900"
@@ -287,10 +318,10 @@ export function Header() {
               ),
             )}
           </ul>
-          <div className="mt-6 grid gap-3">
+          <div className="mt-3 grid shrink-0 gap-2.5">
             <a
               href={site.phoneHref}
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-forest-800 px-5 py-3.5 font-bold text-forest-800"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-forest-800 px-5 py-2.5 font-bold text-forest-800"
             >
               <Phone className="size-4" aria-hidden="true" />
               {site.phone}
@@ -298,14 +329,14 @@ export function Header() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="rounded-full bg-forest-800 px-5 py-3.5 text-center font-bold text-white"
+              className="rounded-full bg-forest-800 px-5 py-2.5 text-center font-bold text-white"
             >
               Free Estimate
             </Link>
           </div>
-        </nav>
-      )}
-    </header>
+        </div>
+      </nav>
+    </div>
     </>
   );
 }

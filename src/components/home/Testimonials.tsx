@@ -17,11 +17,11 @@ export function Testimonials({
   const Heading = headingLevel;
 
   return (
-    <section id="reviews" className="scroll-mt-28 bg-forest-900 py-24 text-cream-50 lg:py-32" aria-labelledby="reviews-title">
+    <section id="reviews" className="section-y scroll-mt-28 bg-forest-900 text-cream-50" aria-labelledby="reviews-title">
       <div className="container-page">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow justify-center text-leaf-200">Kind words</p>
-          <Heading id="reviews-title" className="mt-4 text-4xl leading-tight text-white sm:text-5xl">
+          <Heading id="reviews-title" className="mt-4 text-3xl leading-tight text-white sm:text-4xl lg:text-5xl">
             Kind Words From Our Customers
           </Heading>
           <p className="mt-4 text-cream-100/75">
@@ -29,7 +29,7 @@ export function Testimonials({
           </p>
         </div>
 
-        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-10 grid gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {reviews.map((review, index) => (
             <li key={index}>
               <figure className="flex h-full flex-col rounded-[1.75rem] bg-white/10 p-7 ring-1 ring-white/10">

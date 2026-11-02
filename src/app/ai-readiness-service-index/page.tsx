@@ -19,7 +19,7 @@ export default function AiReadinessPage() {
         description="Who we are, what we do, and how to reach us, in one place."
       />
       <Breadcrumb className="bg-cream-100" items={[{ label: "Home", href: "/" }, { label: "AI Readiness Service Index" }]} />
-      <article className="bg-cream-100 py-20 lg:py-28">
+      <article className="section-y-sm bg-cream-100">
         <div className="container-page">
         <div className="max-w-3xl space-y-10 text-ink-muted">
           <section>

@@ -45,18 +45,18 @@ const posts: {
 
 export function Blog() {
   return (
-    <section id="blog" className="scroll-mt-28 bg-cream-100 py-24 lg:py-32" aria-labelledby="blog-title">
+    <section id="blog" className="section-y scroll-mt-28 bg-cream-100" aria-labelledby="blog-title">
       <div className="container-page">
       <header className="mx-auto max-w-2xl text-center">
         <p className="eyebrow justify-center">From the Canopy crew</p>
-        <h2 id="blog-title" className="mt-4 text-4xl leading-tight sm:text-5xl">
+        <h2 id="blog-title" className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">
           Tree Tips From Our Crew
         </h2>
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">
           Simple, practical advice for taking care of the trees around your home.
         </p>
       </header>
-      <ul className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-10 grid gap-4 sm:mt-14 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <li key={post.href}>
             <article className="group relative flex h-full flex-col overflow-hidden rounded-[2rem] bg-white ring-1 ring-forest-900/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgb(20_48_31/0.35)]">

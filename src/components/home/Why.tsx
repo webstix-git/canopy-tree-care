@@ -96,18 +96,18 @@ export function Why({ variant = "home" }: { variant?: "home" | "services" }) {
       : "Good tree care starts with good advice. We take the time to understand what's happening before recommending what to do next.";
 
   return (
-    <section id="why" className="scroll-mt-28 bg-forest-900 py-24 text-cream-100 lg:py-32" aria-labelledby="why-title">
+    <section id="why" className="section-y scroll-mt-28 bg-forest-900 text-cream-100" aria-labelledby="why-title">
       <div className="container-page">
         <header className="mx-auto max-w-2xl text-center">
           <p className="eyebrow justify-center text-leaf-200">{eyebrow}</p>
-          <h2 id="why-title" className="mt-4 text-4xl leading-tight text-white sm:text-5xl">
+          <h2 id="why-title" className="mt-4 text-3xl leading-tight text-white sm:text-4xl lg:text-5xl">
             Why Our Neighbors Call Us First
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-cream-100/75">{intro}</p>
         </header>
-        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-10 grid gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {reasons.map(({ icon: reasonIcon, title, text }) => (
-            <li key={title} className="rounded-[1.75rem] bg-white/[0.06] p-7 ring-1 ring-white/10">
+            <li key={title} className="rounded-[1.75rem] bg-white/[0.06] p-5 ring-1 ring-white/10 sm:p-7">
               <div className="flex items-center gap-3">
                 <GoldIcon src={reasonIcon} />
                 <h3 className="font-sans text-lg font-bold tracking-normal text-white">{title}</h3>

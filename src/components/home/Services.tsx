@@ -52,12 +52,12 @@ const cards = [
 
 export function Services() {
   return (
-    <section id="services" className="scroll-mt-24 bg-cream-100 py-24 lg:py-32" aria-labelledby="services-title">
+    <section id="services" className="section-y scroll-mt-24 bg-cream-100" aria-labelledby="services-title">
       <div className="container-page">
-      <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+      <div className="flex flex-col justify-between gap-4 sm:gap-6 lg:flex-row lg:items-end">
         <div className="max-w-xl">
           <p className="eyebrow">What we do</p>
-          <h2 id="services-title" className="mt-4 text-4xl leading-tight sm:text-5xl">
+          <h2 id="services-title" className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">
             How We Can Help
           </h2>
         </div>
@@ -83,8 +83,8 @@ export function Services() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
-              <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-display text-2xl font-semibold tracking-tight text-forest-900">{card.name}</h3>
+              <div className="flex flex-1 flex-col p-5 sm:p-6">
+                <h3 className="font-display text-xl font-semibold tracking-tight text-forest-900 sm:text-2xl">{card.name}</h3>
                 <p className="mt-2 text-[18px] leading-relaxed text-ink-muted">{card.text}</p>
                 <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-bold text-forest-700">
                   Learn About {card.name}

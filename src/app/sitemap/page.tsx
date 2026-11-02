@@ -50,27 +50,17 @@ const groups = [
       { label: "Free Estimate", href: "/#estimate" },
     ],
   },
-  {
-    title: "Policies & Information",
-    links: [
-      { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "AI Policy", href: "/ai-policy" },
-      { label: "AI Readiness Service Index", href: "/ai-readiness-service-index" },
-      { label: "Site Map", href: "/sitemap" },
-    ],
-  },
 ];
 
 export default function SitemapPage() {
   return (
     <>
       <PageHero title="Site Map" description="Every page on our website in one place." />
-      <Breadcrumb className="bg-cream-100" items={[{ label: "Home", href: "/" }, { label: "Site Map" }]} />
-
-      <section className="bg-cream-100 py-20 lg:py-28">
+      <section className="bg-cream-100 pb-16 sm:pb-20 lg:pb-28">
+        <Breadcrumb className="bg-cream-100" items={[{ label: "Home", href: "/" }, { label: "Site Map" }]} />
         <div className="container-page max-w-3xl">
           {groups.map((group) => (
-            <div key={group.title} className="mt-12 first:mt-4">
+            <div key={group.title} className="mt-10 first:mt-2">
               <h2 className="text-xl tracking-wide uppercase">{group.title}</h2>
               <ul className="mt-4 list-disc space-y-2 pl-6">
                 {group.links.map((link) => (

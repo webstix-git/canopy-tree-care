@@ -29,9 +29,9 @@ const values = [
 export function Welcome() {
   return (
     <section id="welcome" className="scroll-mt-28 bg-cream-50" aria-labelledby="welcome-title">
-      <div className="container-page grid items-start gap-16 py-24 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-16 lg:py-32">
-        <div className="relative pr-10 pb-16 sm:pr-20 sm:pb-20 lg:sticky lg:top-[calc(var(--site-header-height)+2rem)] lg:mt-3 lg:self-start">
-          <div className="relative aspect-video overflow-hidden rounded-[2rem] rounded-bl-[6rem] shadow-[0_40px_80px_-40px_rgb(20_48_31/0.5)]">
+      <div className="container-page grid items-start gap-10 section-y lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-16">
+        <div className="relative pr-6 pb-14 sm:pr-20 sm:pb-20 lg:sticky lg:top-[calc(var(--site-header-height)+2rem)] lg:mt-3 lg:self-start">
+          <div className="relative aspect-video overflow-hidden rounded-[1.5rem] rounded-bl-[3.5rem] shadow-[0_40px_80px_-40px_rgb(20_48_31/0.5)] sm:rounded-[2rem] sm:rounded-bl-[6rem]">
             <Image
               src="/images/crew-axes.jpg"
               alt="Two Canopy Tree Care crew members with axes in a field"
@@ -51,12 +51,12 @@ export function Welcome() {
               className="object-cover object-center"
             />
           </div>
-          <ArboristBadge className="absolute bottom-2 left-4 z-10 h-24 w-auto drop-shadow-xl sm:h-28" />
+          <ArboristBadge className="absolute bottom-2 left-3 z-10 h-16 w-auto drop-shadow-xl sm:left-4 sm:h-28" />
         </div>
 
         <div>
           <p className="eyebrow">A local team you can count on</p>
-          <h2 id="welcome-title" className="mt-4 text-4xl leading-tight sm:text-5xl">
+          <h2 id="welcome-title" className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">
             We Look After Your Trees <span className="text-forest-600">Like They&apos;re Our Own.</span>
           </h2>
           <div className="mt-6 space-y-4 text-lg leading-relaxed text-ink-muted">

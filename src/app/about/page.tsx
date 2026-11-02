@@ -56,8 +56,8 @@ export default function AboutPage() {
       <Breadcrumb className="bg-cream-50" items={[{ label: "Home", href: "/" }, { label: "About Us" }]} />
 
       <section className="bg-cream-50">
-        <div className="container-page grid items-center gap-12 py-24 lg:grid-cols-2 lg:gap-16 lg:py-32">
-          <div className="relative">
+        <div className="container-page grid items-center gap-10 section-y lg:grid-cols-2 lg:gap-16">
+          <div className="relative pr-2 sm:pr-4">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] shadow-[0_40px_80px_-40px_rgb(20_48_31/0.5)]">
               <Image
                 src="/images/welcome-josh-knapp.jpg"
@@ -67,7 +67,7 @@ export default function AboutPage() {
                 className="object-cover object-center"
               />
             </div>
-            <div className="absolute -top-4 -right-2 grid size-28 place-items-center rounded-full bg-forest-800 px-3 text-center text-cream-50 shadow-lg sm:-right-4">
+            <div className="absolute top-3 right-3 grid size-24 place-items-center rounded-full bg-forest-800 px-3 text-center text-cream-50 shadow-lg sm:size-28 sm:-top-4 sm:-right-4">
               <p>
                 <span className="block text-3xl leading-none font-bold">25</span>
                 <span className="mt-1 block text-[11px] font-bold tracking-wide uppercase">Years since 2000</span>
@@ -76,7 +76,7 @@ export default function AboutPage() {
           </div>
           <div className="max-w-xl">
             <p className="eyebrow">Our Story</p>
-            <h2 className="mt-4 text-4xl leading-tight sm:text-5xl">Why We Do This</h2>
+            <h2 className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">Why We Do This</h2>
             <div className="mt-6 space-y-4 text-ink-muted">
               <p>We got into this work because we love trees, and we were tired of seeing them treated badly.</p>
               <p>
@@ -97,11 +97,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-white py-24 lg:py-32">
-        <div className="container-page grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+      <section className="section-y bg-white">
+        <div className="container-page grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
           <div className="max-w-xl">
             <p className="eyebrow">Certified Expertise</p>
-            <h2 className="mt-4 text-4xl leading-tight sm:text-5xl">Led by an ISA Certified Arborist</h2>
+            <h2 className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">Led by an ISA Certified Arborist</h2>
             <div className="mt-6 space-y-4 text-ink-muted">
               <p>
                 Our work is led by {site.arborist}, an ISA Certified Arborist. His certification
@@ -139,11 +139,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-forest-900 py-24 text-cream-100 lg:py-32">
+      <section className="section-y bg-forest-900 text-cream-100">
         <div className="container-page">
           <header className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center text-leaf-200">Our Values</p>
-            <h2 className="mt-4 text-4xl leading-tight text-white sm:text-5xl">What We Care About</h2>
+            <h2 className="mt-4 text-3xl leading-tight text-white sm:text-4xl lg:text-5xl">What We Care About</h2>
             <p className="mt-4 text-lg leading-relaxed text-cream-100/75">
               A few things we try to get right on every job, no matter the size.
             </p>

@@ -8,18 +8,18 @@ const highlights = ["ISA Certified Arborist", "Locally Owned", "Serving Madison 
 
 export function Hero() {
   return (
-    <section className="relative bg-cream-50">
+    <section className="relative overflow-x-clip bg-cream-50">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-[6.5rem] left-0 h-[34rem] w-[46rem] bg-[radial-gradient(ellipse_at_0%_0%,rgb(214_228_196)_0%,rgb(226_236_210/0.72)_38%,transparent_70%)] sm:-top-[8.5rem]"
+        className="pointer-events-none absolute -top-[6.5rem] left-0 h-[34rem] w-full max-w-[46rem] bg-[radial-gradient(ellipse_at_0%_0%,rgb(214_228_196)_0%,rgb(226_236_210/0.72)_38%,transparent_70%)] sm:-top-[8.5rem]"
       />
 
-      <div className="container-page relative grid items-center gap-16 pt-8 pb-20 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-10 lg:pt-12 lg:pb-24">
+      <div className="container-page relative grid items-center gap-10 pt-8 pb-16 sm:gap-12 sm:pt-10 sm:pb-20 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-10 lg:pt-12 lg:pb-24">
         <div className="relative z-10">
           <p className="text-xs font-bold tracking-[0.18em] text-forest-700 uppercase">
             Madison&apos;s local tree care crew
           </p>
-          <h1 className="mt-5 max-w-xl text-[2.6rem] leading-[1.08] font-medium tracking-tight text-forest-900 sm:text-6xl lg:text-[3.6rem]">
+          <h1 className="mt-4 max-w-xl text-[2.125rem] leading-[1.12] font-medium tracking-tight text-forest-900 sm:mt-5 sm:text-5xl lg:text-[3.6rem] lg:leading-[1.08]">
             Tree Care
             <br />
             You Can Trust,
@@ -30,7 +30,7 @@ export function Hero() {
           <div className="mt-6">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-sun-500 px-7 py-3.5 font-bold text-forest-950 shadow-[0_12px_24px_-14px_rgb(207_138_27/0.9)] transition-colors hover:bg-sun-600"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-sun-500 px-7 py-3.5 font-bold text-forest-950 shadow-[0_12px_24px_-14px_rgb(207_138_27/0.9)] transition-colors hover:bg-sun-600 sm:w-auto"
             >
               Get a Free Estimate
               <ArrowRight className="size-4" aria-hidden="true" />
@@ -39,7 +39,7 @@ export function Hero() {
 
           <ul className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-3">
             {highlights.map((item) => (
-              <li key={item} className="inline-flex items-center gap-2 text-sm font-medium whitespace-nowrap text-forest-800">
+              <li key={item} className="inline-flex max-w-full items-center gap-2 text-sm font-medium text-forest-800">
                 <span className="grid size-5 shrink-0 place-items-center rounded-full bg-[#689838] text-white">
                   <Check className="size-3" strokeWidth={3} aria-hidden="true" />
                 </span>
@@ -49,7 +49,7 @@ export function Hero() {
           </ul>
         </div>
 
-        <div className="relative mx-auto w-[90%] pb-10">
+        <div className="relative mx-auto w-full max-w-xl pb-10 lg:max-w-none lg:w-[90%]">
           <div className="relative h-0 overflow-hidden rounded-[1.35rem] pb-[calc(90.6566%-3px)] shadow-[0_24px_50px_-28px_rgb(20_48_31/0.35)]">
             <img
               src="/images/hero-lakeside.jpg"
@@ -58,7 +58,7 @@ export function Hero() {
               style={{ width: "138.889%", height: "114.903%", left: "-38.889%", top: "-5.71%" }}
             />
           </div>
-          <div className="absolute -top-3 -right-3 z-10 flex max-w-[13rem] items-start gap-2 rounded-xl bg-forest-900 px-3 py-2 text-cream-50 shadow-md">
+          <div className="absolute top-3 right-3 z-10 flex max-w-[11.5rem] items-start gap-2 rounded-xl bg-forest-900 px-3 py-2 text-cream-50 shadow-md sm:max-w-[13rem] sm:-top-3 sm:-right-3">
             <Sparkles className="mt-0.5 size-4 shrink-0 text-sun-400" aria-hidden="true" />
             <div>
               <p className="text-sm leading-tight font-bold text-white">We Leave It Tidy</p>
@@ -66,12 +66,12 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="absolute bottom-0 left-0 flex w-[min(100%,calc(18.5rem-3px))] items-center gap-3 rounded-2xl bg-white px-3.5 py-[calc(0.625rem-1.5px)] shadow-[0_16px_40px_-20px_rgb(20_48_31/0.45)]">
-            <ArboristBadge className="h-16 w-auto shrink-0" />
-            <div>
+          <div className="absolute bottom-0 left-0 flex w-[min(100%,calc(18.5rem-3px))] items-center gap-3 rounded-2xl bg-white px-3 py-2 shadow-[0_16px_40px_-20px_rgb(20_48_31/0.45)] sm:px-3.5 sm:py-[calc(0.625rem-1.5px)]">
+            <ArboristBadge className="h-12 w-auto shrink-0 sm:h-16" />
+            <div className="min-w-0">
               <p className="text-[11px] font-bold tracking-[0.16em] text-forest-600 uppercase">Led by</p>
-              <p className="text-lg leading-tight font-bold text-forest-900">{site.arborist}</p>
-              <p className="text-[18px] text-ink-muted">ISA Certified Arborist, Madison, WI</p>
+              <p className="text-base leading-tight font-bold text-forest-900 sm:text-lg">{site.arborist}</p>
+              <p className="text-sm text-ink-muted sm:text-[18px]">ISA Certified Arborist, Madison, WI</p>
             </div>
           </div>
         </div>

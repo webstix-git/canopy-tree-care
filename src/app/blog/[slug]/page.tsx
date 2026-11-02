@@ -61,7 +61,7 @@ export default async function BlogPostPage({ params }: Props) {
         ]}
       />
 
-      <div className="bg-white py-14 lg:py-20">
+      <div className="section-y-sm bg-white">
         <div className="container-page grid items-start gap-12 lg:grid-cols-[1.4fr_0.7fr] lg:gap-16">
           <article>
             <p className="mb-6 text-sm text-ink-muted">

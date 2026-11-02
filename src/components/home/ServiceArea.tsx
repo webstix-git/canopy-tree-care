@@ -5,11 +5,11 @@ const places = ["Madison", "Dane County", "Surrounding Communities"];
 
 export function ServiceArea({ variant = "home" }: { variant?: "home" | "services" | "about" }) {
   return (
-    <section id="service-area" className="container-page scroll-mt-28 py-24 lg:py-32" aria-labelledby="service-area-title">
-      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+    <section id="service-area" className="container-page section-y scroll-mt-28" aria-labelledby="service-area-title">
+      <div className="grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <p className="eyebrow">Where we work</p>
-          <h2 id="service-area-title" className="mt-4 text-4xl leading-tight sm:text-5xl">
+          <h2 id="service-area-title" className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">
             Serving Madison and Dane County
           </h2>
           <div className="mt-5 space-y-4 text-lg leading-relaxed text-ink-muted">

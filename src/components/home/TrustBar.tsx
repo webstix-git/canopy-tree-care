@@ -23,7 +23,7 @@ const pillars = [
 
 export function TrustBar() {
   return (
-    <section className="container-page relative pb-16 lg:pb-20" aria-labelledby="trust-title">
+    <section className="container-page relative pb-16 sm:pb-20 lg:pb-24" aria-labelledby="trust-title">
       <h2 id="trust-title" className="sr-only">
         Why homeowners choose Canopy
       </h2>
@@ -31,7 +31,7 @@ export function TrustBar() {
         {pillars.map(({ icon, title, text }) => (
           <li
             key={title}
-            className="flex items-start gap-4 border-forest-900/10 px-6 py-7 sm:border-r sm:nth-[2n]:border-r-0 lg:border-r lg:nth-[2n]:border-r lg:last:border-r-0 [&:not(:last-child)]:border-b lg:[&:not(:last-child)]:border-b-0"
+            className="flex items-start gap-3 border-forest-900/10 px-5 py-6 sm:gap-4 sm:px-6 sm:py-7 sm:border-r sm:nth-[2n]:border-r-0 lg:border-r lg:nth-[2n]:border-r lg:last:border-r-0 [&:not(:last-child)]:border-b lg:[&:not(:last-child)]:border-b-0"
           >
             <span className="grid size-12 shrink-0 place-items-center rounded-full bg-leaf-100">
               <img src={icon} alt="" className="size-7" />

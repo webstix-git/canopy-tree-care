@@ -20,7 +20,7 @@ export default function ThankYouPage() {
           { label: "Thank You" },
         ]}
       />
-      <section className="bg-white py-16 lg:py-24">
+      <section className="section-y bg-white">
         <div className="container-page max-w-3xl">
           <p className="text-sm font-bold tracking-[0.16em] text-sun-600 uppercase">Request received</p>
           <h2 className="mt-3 text-4xl leading-tight sm:text-5xl">Thanks for Contacting Us!</h2>

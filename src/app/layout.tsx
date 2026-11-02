@@ -37,7 +37,8 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${manrope.variable} antialiased`} style={{ "--site-header-height": "8.5rem" } as CSSProperties}>
-      <body className="flex min-h-dvh flex-col pb-20 md:pb-0">
+      <body className="flex min-h-dvh flex-col">
+        <div id="scroll-top-sentinel" className="pointer-events-none h-0 w-0 overflow-hidden" aria-hidden="true" />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-full focus:bg-forest-900 focus:px-4 focus:py-2 focus:text-white"
@@ -46,7 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         <RouteScroll />
         <Header />
-        <main id="main" className="flex-1">
+        <main id="main" className="min-w-0 flex-1 overflow-x-clip">
           {children}
         </main>
         <Footer />
