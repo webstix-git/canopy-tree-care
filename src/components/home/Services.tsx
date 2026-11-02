@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import lotClearing from "@/assets/images/gallery-cleanup.jpg";
+import diseaseImg from "@/assets/images/service-plant-health.jpg";
+import stormImg from "@/assets/images/gallery-storm-cleanup.jpg";
 
 const cards = [
   {
@@ -10,7 +12,6 @@ const cards = [
     text: "When a tree is dead, damaged, or creating a safety concern, we'll help you figure out the safest way to handle it.",
     image: "/images/service-removal-house.jpg",
     alt: "Arborist taking down a tree in sections beside a house",
-    featured: true,
   },
   {
     slug: "tree-pruning",
@@ -30,8 +31,8 @@ const cards = [
     slug: "disease-management",
     name: "Disease Management",
     text: "Leaves changing, branches dying, or a tree looking different than it used to? We'll take a closer look and help you understand what's happening.",
-    image: "/images/gallery-storm-cleanup.jpg",
-    alt: "Storm-broken limbs and leaves scattered across a driveway",
+    image: diseaseImg,
+    alt: "Healthy green leaves in a cared-for tree canopy",
   },
   {
     slug: "lot-clearing",
@@ -39,6 +40,13 @@ const cards = [
     text: "Need trees and brush cleared for a project? We'll help you figure out what needs to go and get the site ready for what's next.",
     image: lotClearing,
     alt: "Brush and debris cleared from a residential lot",
+  },
+  {
+    slug: "storm-damage",
+    name: "Storm Damage",
+    text: "If a storm has damaged a tree on your property, don't assume it's safe just because it's still standing. We'll help you make it safe.",
+    image: stormImg,
+    alt: "Storm-broken limbs and leaves scattered across a driveway",
   },
 ];
 
@@ -61,30 +69,26 @@ export function Services() {
 
       <ul className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {cards.map((card) => (
-          <li key={card.slug} className={card.featured ? "md:col-span-2 lg:col-span-2" : undefined}>
+          <li key={card.slug}>
             <Link
               href={`/services/${card.slug}`}
-              className={`group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] bg-white text-forest-900 shadow-[0_18px_40px_-28px_rgb(20_48_31/0.45)] ring-1 ring-forest-900/10 ${
-                card.featured ? "lg:flex-row" : ""
-              }`}
+              className="group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] bg-white text-forest-900 shadow-[0_18px_40px_-28px_rgb(20_48_31/0.45)] ring-1 ring-forest-900/10"
             >
-              <div className={`relative ${card.featured ? "min-h-56 lg:w-1/2" : "aspect-[16/10]"}`}>
+              <div className="relative aspect-[16/10]">
                 <Image
                   src={card.image}
                   alt={card.alt}
                   fill
-                  sizes={card.featured ? "(min-width: 1024px) 32vw, 100vw" : "(min-width: 768px) 45vw, 100vw"}
+                  sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
-              <div
-                className={`flex flex-1 flex-col p-6 ${card.featured ? "justify-center text-left lg:p-8" : ""}`}
-              >
+              <div className="flex flex-1 flex-col p-6">
                 <h3 className="font-display text-2xl font-semibold tracking-tight text-forest-900">{card.name}</h3>
                 <p className="mt-2 text-[18px] leading-relaxed text-ink-muted">{card.text}</p>
-                <span className={`inline-flex items-center gap-1 text-sm font-bold text-forest-700 ${card.featured ? "mt-4" : "mt-auto pt-4"}`}>
+                <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-bold text-forest-700">
                   Learn About {card.name}
-                  <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                 </span>
               </div>
             </Link>

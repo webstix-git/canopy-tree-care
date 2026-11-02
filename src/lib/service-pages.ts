@@ -33,7 +33,7 @@ export type ServicePage = {
   extraImages: { image: StaticImageData; alt: string }[];
   sections: ServiceSection[];
   process: { title: string; text: string }[];
-  faqs: { question: string; answer: string }[];
+  closing: ServiceSection;
   ctaTitle: string;
 };
 
@@ -98,28 +98,14 @@ export const servicePages: ServicePage[] = [
         text: "Brush, wood, and chips get cleaned up so you can use the space again.",
       },
     ],
-    faqs: [
-      {
-        question: "Do you always recommend taking the tree down?",
-        answer:
-          "No. If the tree can stay with pruning or continued monitoring, we'll tell you. Removal is for trees that are dead, failing, or sitting where a failure would put your home or family at risk.",
-      },
-      {
-        question: "How do you keep the house and yard safe during a removal?",
-        answer:
-          "We plan the job first. Close to a roof or other structures, we take the tree down in sections instead of dropping it. We also work carefully around driveways, fences, and landscaping.",
-      },
-      {
-        question: "What happens to the wood and the stump?",
-        answer:
-          "We clean up the brush and wood when the removal is finished. If you want the stump gone too, we can grind it so you can use that part of the yard again.",
-      },
-      {
-        question: "How soon can you come look at the tree?",
-        answer:
-          "Give us a call and tell us what you're seeing. If it's a hazard, we'll tell you when we can get there. If it can wait a bit, we'll still come look and talk through the options.",
-      },
-    ],
+    closing: {
+      title: "Keeping Your Home and Yard Safe",
+      paragraphs: [
+        "We don't always recommend taking the tree down. If it can stay with pruning or continued monitoring, we'll tell you. Removal is for trees that are dead, failing, or sitting where a failure would put your home or family at risk.",
+        "Close to a roof or other structures, we take the tree down in sections instead of dropping it, and we work carefully around driveways, fences, and landscaping. When the job is finished, we clean up the brush and wood. If you want the stump gone too, we can grind it.",
+        "Give us a call at 608-243-1218 and tell us what you're seeing. If it's a hazard, we'll tell you when we can get there.",
+      ],
+    },
     ctaTitle: "Need a Tree Removed? Get a Free Estimate",
   },
   {
@@ -175,28 +161,14 @@ export const servicePages: ServicePage[] = [
         text: "The yard, driveway, and beds get picked up when we're finished.",
       },
     ],
-    faqs: [
-      {
-        question: "Will pruning hurt my tree?",
-        answer:
-          "Done well, pruning helps a tree. The trouble starts with the wrong cuts, like topping. We'll take off what needs to come off and leave the rest.",
-      },
-      {
-        question: "When is the best time to prune in Madison?",
-        answer:
-          "It depends on the tree. Oaks need extra care because of oak wilt. If waiting is the smarter call, we'll say so. If a broken limb is a hazard now, that comes first.",
-      },
-      {
-        question: "How much of the tree will you take off?",
-        answer:
-          "Only what the tree actually needs. We're not trying to shrink it for the sake of it. You'll hear the plan before we start.",
-      },
-      {
-        question: "Can you prune around the house and the roof?",
-        answer:
-          "Yes. A lot of the pruning we do is for limbs growing toward gutters, roofs, and walkways. We'll work around the house with the same care we bring to a removal.",
-      },
-    ],
+    closing: {
+      title: "Pruning Around Your Home",
+      paragraphs: [
+        "Done well, pruning helps a tree. The trouble starts with the wrong cuts, like topping. We'll take off only what the tree actually needs, and you'll hear the plan before we start.",
+        "Timing depends on the tree. Oaks need extra care because of oak wilt. If waiting is the smarter choice, we'll say so. If a broken limb is a hazard now, that comes first.",
+        "A lot of the pruning we do is for limbs growing toward gutters, roofs, and walkways. We'll work around the house with the same care we bring to a removal.",
+      ],
+    },
     ctaTitle: "Give Your Trees the Care They Need",
   },
   {
@@ -248,28 +220,13 @@ export const servicePages: ServicePage[] = [
         text: "You can seed, plant, or simply stop working around it with the mower.",
       },
     ],
-    faqs: [
-      {
-        question: "How far down do you grind the stump?",
-        answer:
-          "Below the surrounding grade, so the spot sits lower than the lawn around it. That way you can seed, plant, or mow over it later.",
-      },
-      {
-        question: "Can I plant something there afterward?",
-        answer:
-          "Yes. That's one of the main reasons people grind a stump. We'll leave the area ready for whatever you want to do with that space next.",
-      },
-      {
-        question: "Do you grind stumps from trees you didn't remove?",
-        answer:
-          "Yes. Plenty of the stumps we grind have been sitting in a yard for years after someone else's removal, or after a tree came down in a storm.",
-      },
-      {
-        question: "How long does stump grinding take?",
-        answer:
-          "It depends on the size of the stump and what's around it. We'll look first and give you a clear sense of the work before we start.",
-      },
-    ],
+    closing: {
+      title: "After the Stump Is Gone",
+      paragraphs: [
+        "We grind the stump below the surrounding grade so the spot sits lower than the lawn around it. That way you can seed, plant, or mow over it later.",
+        "Plenty of the stumps we grind have been sitting in a yard for years after someone else's removal, or after a tree came down in a storm. How long it takes depends on the size of the stump and what's around it. We'll look first and give you a clear sense of the work before we start.",
+      ],
+    },
     ctaTitle: "Ready to Get Rid of That Stump?",
   },
   {
@@ -327,28 +284,13 @@ export const servicePages: ServicePage[] = [
         text: "Watch, prune, treat, or take it down. We'll say which option fits this tree.",
       },
     ],
-    faqs: [
-      {
-        question: "Can a sick tree be saved?",
-        answer:
-          "Sometimes. It depends on what's going on and how far along it is. We'll look first and tell you if watching, pruning, or treatment still makes sense, or if the tree has become a safety concern.",
-      },
-      {
-        question: "Is this oak wilt or emerald ash borer?",
-        answer:
-          "Those are real issues around Madison, and other problems can look like them. We won't guess from a photo alone. We'll come see the tree and talk through what we're seeing.",
-      },
-      {
-        question: "Should I prune a diseased tree myself?",
-        answer:
-          "It's better to have us look first. Cutting at the wrong time, especially on oaks, can make some problems worse. If a hanging limb is a hazard, call us and we'll tell you when we can get there.",
-      },
-      {
-        question: "When is removal the safer choice?",
-        answer:
-          "When the tree is failing, hollow, or sitting over a house, drive, or play area in a way you wouldn't want to live with. We'll say so plainly if that's the case.",
-      },
-    ],
+    closing: {
+      title: "When a Tree Can Be Saved",
+      paragraphs: [
+        "A sick tree can sometimes be saved. It depends on what's going on and how far along it is. We'll look first and tell you if watching, pruning, or treatment still makes sense, or if the tree has become a safety concern.",
+        "Oak wilt and emerald ash borer are real issues around Madison, and other problems can look like them. We won't guess from a photo alone. It's better to have us look before you prune, especially on oaks. If a hanging limb is a hazard, call us at 608-243-1218 and we'll tell you when we can get there.",
+      ],
+    },
     ctaTitle: "Concerned About a Tree? Let's Take a Look",
   },
   {
@@ -400,23 +342,13 @@ export const servicePages: ServicePage[] = [
         text: "The site is left ready for whatever you're doing next, not buried in debris.",
       },
     ],
-    faqs: [
-      {
-        question: "Do you take every tree on the lot?",
-        answer:
-          "No. We'll walk it with you and keep the trees that still make sense for the property. The ones in the way of the project come out.",
-      },
-      {
-        question: "Can you work around a house or a building site?",
-        answer:
-          "Yes. We treat lot clearing with the same care as a single-tree job around a home, driveway, and the rest of the yard.",
-      },
-      {
-        question: "What do you do with the brush?",
-        answer:
-          "We chip and clean so you're not left with a pile. The site should be ready for whatever you're doing next.",
-      },
-    ],
+    closing: {
+      title: "What Stays and What Comes Out",
+      paragraphs: [
+        "We don't take every tree on the lot. We'll walk it with you and keep the trees that still make sense for the property. The ones in the way of the project come out.",
+        "We treat lot clearing with the same care as a single-tree job around a home, driveway, and the rest of the yard. Then we chip and clean so you're not left with a pile.",
+      ],
+    },
     ctaTitle: "Talk About Your Project",
   },
   {
@@ -487,28 +419,13 @@ export const servicePages: ServicePage[] = [
         text: "Hanging wood, failed trees, and cleanup get handled in an order that protects the property.",
       },
     ],
-    faqs: [
-      {
-        question: "Should I wait until the weather clears?",
-        answer:
-          "Stay inside while conditions are still dangerous. Once you can look safely, call us. We'll tell you when we can get there and what to keep clear of until we do.",
-      },
-      {
-        question: "Is a standing storm-damaged tree still dangerous?",
-        answer:
-          "It can be. A tree that's still standing can be cracked, hung up, or leaning. Don't assume it's safe just because it didn't fall. We'll come look.",
-      },
-      {
-        question: "Do you take trees off houses and driveways?",
-        answer:
-          "Yes. That's a lot of the storm work we do. We'll plan the removal around the house, the drive, and whatever else the tree is sitting on.",
-      },
-      {
-        question: "What should I do until you arrive?",
-        answer:
-          "Keep people and pets away from hanging wood and leaning trees. Don't try to cut a loaded limb yourself. Call 608-243-1218 and tell us what you're seeing.",
-      },
-    ],
+    closing: {
+      title: "Until We Get There",
+      paragraphs: [
+        "Stay inside while conditions are still dangerous. Once you can look safely, call us at 608-243-1218. We'll tell you when we can get there and what to keep clear of until we do.",
+        "A tree that's still standing can be cracked, hung up, or leaning. Don't assume it's safe just because it didn't fall. Keep people and pets away from hanging wood, and don't try to cut a loaded limb yourself. If a tree is on the house or driveway, that's a lot of the storm work we do, and we'll plan the removal around it.",
+      ],
+    },
     ctaTitle: "Need Tree Removal from Storm Damage?",
   },
 ];
