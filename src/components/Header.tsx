@@ -142,23 +142,6 @@ export function Header() {
                   }`}
                 >
                   <ul className="min-w-60 rounded-2xl bg-white p-2 shadow-[0_24px_50px_-28px_rgb(20_48_31/0.55)] ring-1 ring-forest-900/10">
-                    <li>
-                      <Link
-                        href="/services"
-                        aria-current={pathname === "/services" ? "page" : undefined}
-                        onClick={() => {
-                          servicesLock.current = true;
-                          setServicesMenu(false);
-                        }}
-                        className={`block rounded-xl px-4 py-2.5 text-base font-semibold transition-colors hover:bg-cream-100 hover:text-forest-700 ${
-                          pathname === "/services"
-                            ? "text-forest-700 underline decoration-2 underline-offset-4 decoration-forest-700"
-                            : "text-forest-900"
-                        }`}
-                      >
-                        Services Overview
-                      </Link>
-                    </li>
                     {services.map((service) => (
                       <li key={service.slug}>
                         <Link
@@ -277,15 +260,6 @@ export function Header() {
                   </button>
                   {servicesOpen ? (
                     <ul className="ml-3 border-l border-forest-900/10 pl-3">
-                      <li>
-                        <Link
-                          href="/services"
-                          onClick={() => setOpen(false)}
-                          className="block px-1 py-1.5 text-[0.95rem] font-semibold text-forest-800"
-                        >
-                          Services Overview
-                        </Link>
-                      </li>
                       {services.map((service) => (
                         <li key={service.slug}>
                           <Link

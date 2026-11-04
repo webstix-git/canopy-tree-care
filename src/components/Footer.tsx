@@ -90,7 +90,7 @@ export function Footer() {
             <ArboristBadge className="h-20 w-auto shrink-0" />
             <p className="text-sm leading-snug">
               <span className="block font-bold text-forest-900">ISA Certified Arborist</span>
-              <span className="mt-1 block text-ink-muted">Credentialed Expertise on Every Job</span>
+              <span className="mt-1 block text-ink-muted">Credentialed Expertise on Every&nbsp;Job</span>
             </p>
           </div>
         </div>

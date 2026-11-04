@@ -24,7 +24,7 @@ export function Hero() {
             <br />
             You Can Trust,
             <br />
-            <span className="font-bold text-forest-600">Rooted in Madison.</span>
+            <span className="font-bold text-forest-600">Rooted in&nbsp;Madison.</span>
           </h1>
 
           <div className="mt-6">

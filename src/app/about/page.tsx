@@ -87,7 +87,7 @@ export default function AboutPage() {
               <p>
                 We&apos;re a locally owned crew, and we care about doing the job right. That means
                 showing up when we say we will, keeping your property clean, and taking the time to
-                explain what we see and what we recommend.
+                explain what we see and what we&nbsp;recommend.
               </p>
             </div>
             <Link href="/gallery" className={outlineButton}>
@@ -101,7 +101,7 @@ export default function AboutPage() {
         <div className="container-page grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
           <div className="max-w-xl">
             <p className="eyebrow">Certified Expertise</p>
-            <h2 className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">Led by an ISA Certified Arborist</h2>
+            <h2 className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">Led by an ISA Certified&nbsp;Arborist</h2>
             <div className="mt-6 space-y-4 text-ink-muted">
               <p>
                 Our work is led by {site.arborist}, an ISA Certified Arborist. His certification
@@ -133,7 +133,7 @@ export default function AboutPage() {
               <ArboristBadge className="mx-auto h-56 w-auto sm:h-64" />
               <p className="mt-6 text-xs font-bold tracking-[0.16em] text-forest-600 uppercase">ISA Certified Arborist</p>
               <p className="mt-2 text-2xl font-bold text-forest-900">{site.arborist}</p>
-              <p className="mt-2 text-ink-muted">Leading tree care in Madison since 2000.</p>
+              <p className="mt-2 text-ink-muted">Leading tree care in Madison since&nbsp;2000.</p>
             </div>
           </div>
         </div>

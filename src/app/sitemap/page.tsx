@@ -14,7 +14,6 @@ const groups = [
     title: "Main Pages",
     links: [
       { label: "Home", href: "/" },
-      { label: "Services", href: "/services" },
       { label: "About Us", href: "/about" },
       { label: "Gallery", href: "/gallery" },
       { label: "Blog", href: "/blog" },

@@ -83,7 +83,7 @@ export const servicePages: ServicePage[] = [
     process: [
       {
         title: "We Come Take a Look",
-        text: "We'll walk the tree, look at the lean, and take note of what's around it before recommending anything.",
+        text: "We'll walk the tree, check the lean, and note what's around it before we recommend a plan.",
       },
       {
         title: "You Get Clear Options",
@@ -164,7 +164,7 @@ export const servicePages: ServicePage[] = [
     closing: {
       title: "Pruning Around Your Home",
       paragraphs: [
-        "Done well, pruning helps a tree. The trouble starts with the wrong cuts, like topping. We'll take off only what the tree actually needs, and you'll hear the plan before we start.",
+        "Done well, pruning helps a tree. The trouble starts with the wrong cuts, like topping. We'll take off only what the tree actually needs, and you'll hear the plan before we\u00a0start.",
         "Timing depends on the tree. Oaks need extra care because of oak wilt. If waiting is the smarter choice, we'll say so. If a broken limb is a hazard now, that comes first.",
         "A lot of the pruning we do is for limbs growing toward gutters, roofs, and walkways. We'll work around the house with the same care we bring to a removal.",
       ],
@@ -188,14 +188,14 @@ export const servicePages: ServicePage[] = [
         title: "Why Remove an Old Stump?",
         paragraphs: [
           "Once a tree is gone, the stump often stays in the way. It can make mowing difficult, take up space you could plant, and slowly become a place for insects and decay.",
-          "Grinding the stump below grade lets you use that part of the yard again.",
+          "Grinding the stump below grade lets you use that part of the yard\u00a0again.",
         ],
       },
       {
-        title: "Benefits of Professional Stump Grinding",
+        title: "Benefits of Stump\u00a0Grinding",
         paragraphs: [
           "We bring a stump grinder to the property, take the stump down below the surrounding grade, and leave you with space you can seed, plant, or mow over.",
-          "Many of the stumps we grind are the last step of a removal we already completed. Others have been sitting in a yard for years. Either way, we'll look at access, the size of the stump, and what's around it before we start.",
+          "Many of the stumps we grind are the last step of a removal we already completed. Others have been sitting in a yard for years. Either way, we'll look at access, the size of the stump, and what's around it before we\u00a0start.",
         ],
         items: [
           "Clear space for landscaping or a garden",
@@ -224,7 +224,7 @@ export const servicePages: ServicePage[] = [
       title: "After the Stump Is Gone",
       paragraphs: [
         "We grind the stump below the surrounding grade so the spot sits lower than the lawn around it. That way you can seed, plant, or mow over it later.",
-        "Plenty of the stumps we grind have been sitting in a yard for years after someone else's removal, or after a tree came down in a storm. How long it takes depends on the size of the stump and what's around it. We'll look first and give you a clear sense of the work before we start.",
+        "Plenty of the stumps we grind have been sitting in a yard for years after someone else's removal, or after a tree came down in a storm. How long it takes depends on the size of the stump and what's around it. We'll look first and give you a clear sense of the work before we\u00a0start.",
       ],
     },
     ctaTitle: "Ready to Get Rid of That Stump?",
@@ -232,7 +232,6 @@ export const servicePages: ServicePage[] = [
   {
     slug: "disease-management",
     name: "Disease Management",
-    heroTitle: "Tree Disease Management in Madison",
     summary: "A tree that doesn't look right isn't necessarily a tree that needs to come down.",
     description:
       "Leaves changing, branches thinning, or bark that looks off? We'll take a closer look and help you understand what's actually going on.",
@@ -299,7 +298,7 @@ export const servicePages: ServicePage[] = [
     summary:
       "Getting a property ready for a new project can mean dealing with trees, brush, and other growth that needs to come out of the way.",
     description:
-      "Need trees and brush cleared for a project? We'll walk the lot with you, figure out what needs to go, and get the site ready for what's next.",
+      "Need trees and brush cleared for a project? We'll walk the lot with you, figure out what needs to go, and get the site ready for what's\u00a0next.",
     image: lotImg,
     alt: "An arborist feeding branches into a wood chipper during a cleanup",
     extraImages: [
@@ -398,7 +397,7 @@ export const servicePages: ServicePage[] = [
         ],
       },
       {
-        title: "How We Handle Storm-Damaged Trees",
+        title: "How We Handle Storm Damage",
         paragraphs: [
           "We'll look at what's hanging, what's cracked, and what's leaning toward the house. Then we'll help you tell the difference between what has to come down now and what can wait.",
           "Close to a roof or other structures, we work in sections. We clean up the wood so you're not left with a storm pile in the yard.",

@@ -108,7 +108,7 @@ export default async function ServiceDetailPage({ params }: Props) {
         className="bg-cream-50"
         items={[
           { label: "Home", href: "/" },
-          { label: "Services", href: "/services" },
+          { label: "Services" },
           { label: service.name },
         ]}
       />
@@ -164,28 +164,21 @@ export default async function ServiceDetailPage({ params }: Props) {
             <p className="eyebrow justify-center">More From Canopy</p>
             <h2 className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">Other Work We Do</h2>
           </header>
-          <ul className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-5 lg:grid-cols-3 xl:grid-cols-5">
+          <ul className="mt-8 grid gap-3 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
             {others.map((item) => (
               <li key={item.slug}>
                 <Link
                   href={`/services/${item.slug}`}
-                  className="group relative block aspect-[4/5] overflow-hidden rounded-[1.75rem] shadow-[0_18px_40px_-28px_rgb(20_48_31/0.45)] ring-1 ring-forest-900/10"
+                  className="group flex h-full flex-col rounded-[1.75rem] bg-white p-5 shadow-[0_18px_40px_-28px_rgb(20_48_31/0.45)] ring-1 ring-forest-900/10 transition-colors hover:bg-cream-100 sm:p-6"
                 >
-                  <Image
-                    src={item.image}
-                    alt={item.alt}
-                    fill
-                    placeholder="blur"
-                    sizes="(min-width: 1280px) 18vw, (min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 bg-[linear-gradient(to_top,rgb(20_48_31/72%)_0%,rgb(20_48_31/48%)_42%,rgb(20_48_31/18%)_72%,rgb(20_48_31/0%)_100%)] px-3 pt-10 pb-3 text-white sm:px-5 sm:pt-16 sm:pb-5">
-                    <span className="font-display text-lg leading-tight sm:text-2xl">{item.name}</span>
+                  <span className="flex items-start justify-between gap-3">
+                    <span className="font-display text-xl leading-tight text-forest-900 sm:text-2xl">{item.name}</span>
                     <ArrowRight
-                      className="size-5 shrink-0 transition-transform group-hover:translate-x-1"
+                      className="mt-1 size-5 shrink-0 text-forest-800 transition-transform group-hover:translate-x-1"
                       aria-hidden="true"
                     />
                   </span>
+                  <p className="mt-3 text-base leading-relaxed text-ink-muted">{item.description}</p>
                 </Link>
               </li>
             ))}

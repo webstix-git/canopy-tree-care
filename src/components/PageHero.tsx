@@ -65,7 +65,10 @@ export function Breadcrumb({
                   {item.label}
                 </Link>
               ) : (
-                <span className="font-semibold text-forest-900" aria-current="page">
+                <span
+                  className={last ? "font-semibold text-forest-900" : undefined}
+                  aria-current={last ? "page" : undefined}
+                >
                   {item.label}
                 </span>
               )}

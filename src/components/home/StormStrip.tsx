@@ -11,7 +11,7 @@ export function StormStrip() {
             Need Tree Removal from Storm Damage?
           </h2>
           <p className="mt-3 text-cream-100/85">
-            Storm damage can leave you with trees that need to come down fast. We&apos;re here to
+            After a storm, a damaged tree can become a real safety concern. We&apos;re here to
             help with safe, careful tree removal when you need it most.
           </p>
         </div>

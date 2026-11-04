@@ -6,7 +6,7 @@ import canopyImg from "@/assets/images/cta-canopy.jpg";
 
 export function CtaBanner({
   id,
-  title = "Got a Tree You're Worried About?",
+  title = "Got a Tree You're Worried\u00a0About?",
   description = "Tell us what's going on and we'll come take a look. We'll explain what we find, what we recommend, and what it will take to get the job done right.",
 }: {
   id?: string;
